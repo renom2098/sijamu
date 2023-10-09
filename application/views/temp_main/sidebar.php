@@ -1,6 +1,6 @@
 <!-- BEGIN: Body-->
 
-<body class="pace-done vertical-layout vertical-menu-modern navbar-floating footer-static menu-expanded" data-open="click" data-menu="vertical-menu-modern" data-col="">
+<body class="pace-done vertical-layout navbar-floating footer-static vertical-menu-modern menu-expanded" data-open="click" data-menu="vertical-menu-modern" data-col="">
 
     <!-- BEGIN: Header-->
     <nav class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow container-xxl">
@@ -31,12 +31,20 @@
     <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
-                <li class="nav-item me-auto"><a class="navbar-brand" href="<?= base_url(); ?>assets/starter-kit/ltr/vertical-collapsed-menu-template/">
-                <span class="brand-logo">
-                    <img src="<?= base_url(); ?>assets/app-assets/images/ico/logo_unsub_baru.png" alt="">
-                </span>
-                        <h2 class="brand-text">SIJAMU</h2>
-                    </a></li>
+                <li class="nav-item me-auto">
+                    <a class="navbar-brand" href="<?= base_url(); ?>assets/starter-kit/ltr/vertical-collapsed-menu-template/">
+                        <span class="brand-logo">
+                            <img src="<?= base_url(); ?>assets/app-assets/images/ico/logo_unsub_baru.png" alt="">
+                        </span>
+                            <h2 class="brand-text">SIJAMU</h2>
+                    </a>
+                </li>
+                <li class="nav-item nav-toggle">
+                    <a class="nav-link modern-nav-toggle pe-0" data-bs-toggle="collapse">
+                        <i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i>
+                        <i class="d-none d-xl-block collapse-toggle-icon font-medium-4  text-primary" data-feather="disc" data-ticon="disc"></i>
+                    </a>
+                </li>
             </ul>
         </div>
         <div class="shadow-bottom"></div>
