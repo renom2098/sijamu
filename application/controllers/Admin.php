@@ -12,7 +12,7 @@ class Admin extends CI_Controller {
     $this->load->view('temp_main/footer');
   }
 
-  // coba kommen
+  // coba kommen 1
   public function index(){
     $this->_temmplateTop();
     $this->load->view('admin/home');
