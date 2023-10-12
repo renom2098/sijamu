@@ -40,6 +40,29 @@
             }
         })
     </script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+      $('#table').DataTable({
+        "fnCreatedRow": function(nRow, aData, iDataIndex) {
+          $(nRow).attr('id', aData[0]);
+        },
+        'serverSide': 'true',
+        'processing': 'true',
+        'paging': 'true',
+        'order': [],
+        'ajax': {
+          'url': '<?= site_url('admin/getData_penetapan'); ?>',
+          'type': 'post',
+        },
+        "aoColumnDefs": [{
+            "bSortable": false,
+            "aTargets": [5]
+          },
+
+        ]
+      });
+    });
+</script>
 </body>
 <!-- END: Body-->
 
