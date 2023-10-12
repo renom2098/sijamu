@@ -29,40 +29,6 @@
     <!-- BEGIN: Page JS-->
     <script src="<?= base_url(); ?>assets/app-assets/js/scripts/tables/table-datatables-advanced.js"></script>
     <!-- END: Page JS-->
-
-    <script>
-        $(window).on('load', function() {
-            if (feather) {
-                feather.replace({
-                    width: 14,
-                    height: 14
-                });
-            }
-        })
-    </script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-      $('#table').DataTable({
-        "fnCreatedRow": function(nRow, aData, iDataIndex) {
-          $(nRow).attr('id', aData[0]);
-        },
-        'serverSide': 'true',
-        'processing': 'true',
-        'paging': 'true',
-        'order': [],
-        'ajax': {
-          'url': '<?= site_url('admin/getData_penetapan'); ?>',
-          'type': 'post',
-        },
-        "aoColumnDefs": [{
-            "bSortable": false,
-            "aTargets": [5]
-          },
-
-        ]
-      });
-    });
-</script>
 </body>
 <!-- END: Body-->
 
