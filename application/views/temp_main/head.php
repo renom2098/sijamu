@@ -14,6 +14,11 @@
     <link rel="shortcut icon" type="image/x-icon" href="<?= base_url(); ?>assets/app-assets/images/ico/logo_unsub_baru.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
+    
+
+    
+
+
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/app-assets/vendors/css/vendors.min.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/app-assets/vendors/css/tables/datatable/dataTables.bootstrap5.min.css">
@@ -38,6 +43,9 @@
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/assets/css/style.css">
     <!-- END: Custom CSS-->
+
+    <!-- ini dia yg menjadikan ajax bisa diakses -->
+    <script src="<?= base_url(); ?>assets/app-assets/vendors/js/jquery/jquery.min.js"></script>
 
 </head>
 <!-- END: Head-->

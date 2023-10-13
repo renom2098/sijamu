@@ -34,12 +34,13 @@
                                                 <h4 class="card-title">Penetapan</h4>
                                             </div>
                                             <div class="card-datatable">
-                                                <table id="table" class="datatables-ajax table table-responsive">
+                                                <table class="datatables-ajax table table-responsive" id="table">
                                                     <thead>
                                                         <tr>
                                                             <th>No</th>
                                                             <th>Nama File</th>
                                                             <th>Jenis File</th>
+                                                            <th>File</th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </thead>
@@ -58,4 +59,15 @@
         </div>
     </div>
     <!-- END: Content-->
+
+<script>
+    $(document).ready(function(){
+        $('#table').DataTable({
+            "processing": false,
+            "serverSide": false,
+            "destory": true,
+            "ajax": "<?= site_url('admin/getData_penetapan'); ?>"
+        })
+    })
+</script>
 
