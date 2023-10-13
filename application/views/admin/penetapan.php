@@ -34,7 +34,7 @@
                                                 <h4 class="card-title">Penetapan</h4>
                                             </div>
                                             <div class="card-datatable">
-                                                <table class="datatables-ajax table table-responsive" id="table">
+                                                <table class="dataTables_wrapper dt-bootstrap5 no-footer" id="table">
                                                     <thead>
                                                         <tr>
                                                             <th>No</th>
@@ -65,7 +65,7 @@
         $('#table').DataTable({
             "processing": false,
             "serverSide": false,
-            "destory": true,
+            "paging": true,
             "ajax": "<?= site_url('admin/getData_penetapan'); ?>"
         })
     })
