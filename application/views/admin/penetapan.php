@@ -86,7 +86,7 @@ function add()
 		$("#formAdd").html(data);
 		$("#modal_edit").attr(
             "url",
-            "<?= site_url("admin/insertData_penetapan"); ?>"
+            "<?= site_url("admin/insert_dataPenetapan"); ?>"
         );
 		$("#defaultModalLabel").html("Tambah");
 		$("#addModal").modal();

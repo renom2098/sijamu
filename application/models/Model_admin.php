@@ -2,10 +2,10 @@
 
 class Model_admin extends CI_Model  {
 
-  function __construct(){
-    parent::__construct();
-  }
-  
+    function __construct(){
+        parent::__construct();
+    }
+
   // start datatables
   var $column_order = array(null, 'nama_peraturan', 'jenis_peraturan', 'nama_file'); //set column field database for datatable orderable
   var $column_search = array('nama_peraturan', 'jenis_peraturan', 'nama_file'); //set column field database for datatable searchable
@@ -37,13 +37,13 @@ class Model_admin extends CI_Model  {
       }
   }
 
-  function get_datatables() {
-      $this->_get_datatables_query();
-      if(@$_POST['length'] != -1)
-      $this->db->limit(@$_POST['length'], @$_POST['start']);
-      $query = $this->db->get();
-      return $query->result();
-  }
+    function get_datatables() {
+        $this->_get_datatables_query();
+        if(@$_POST['length'] != -1)
+        $this->db->limit(@$_POST['length'], @$_POST['start']);
+        $query = $this->db->get();
+        return $query->result();
+    }
 
   function count_filtered() {
       $this->_get_datatables_query();
@@ -55,11 +55,15 @@ class Model_admin extends CI_Model  {
       $this->db->from('data_penetapan');
       return $this->db->count_all_results();
   }
-  // end datatables
-
-	// function get_data_penetapan(){
-	//   $this->db->from("data_penetapan");
-  //   return $this->db->get();
-	// }
+  
+    function insert_dataPenetapan(){
+        $form = $this->input->post("f");
+        $timenow = date("Y-m-d");
+        
+        $this->db->set($form);
+        $this->db->set("_ctimeupload", $timenow);
+        $this->db->set("_ctimeupdate", $timenow);
+        return $this->db->insert("data_penetapan");
+    }
 
 }

@@ -62,4 +62,9 @@ class Admin extends CI_Controller {
     $this->load->view('admin/view_formAddPenetapan');
   }
 
+  public function insert_dataPenetapan(){
+    $this->mdl->insert_dataPenetapan();
+    redirect("admin/penetapan");
+  }
+
 }
