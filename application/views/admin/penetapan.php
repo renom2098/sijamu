@@ -32,6 +32,7 @@
                                         <div class="card">
                                             <div class="card-header border-bottom">
                                                 <h4 class="card-title">Penetapan</h4>
+                                                    <button onclick="add()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addData">Tambah Penetapan</button>
                                             </div>
                                             <div class="card-datatable">
                                                 <table class="dataTables_wrapper dt-bootstrap5 no-footer" id="table">
@@ -60,6 +61,13 @@
     </div>
     <!-- END: Content-->
 
+    <!-- Modal Tambah User -->
+    <div class="modal fade text-start" id="addData" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div id="formAdd"></div>
+        </div>
+    </div>
+
 <script>
     $(document).ready(function(){
         $('#table').DataTable({
@@ -68,6 +76,21 @@
             "paging": true,
             "ajax": "<?= site_url('admin/getData_penetapan'); ?>"
         })
-    })
+    });
+</script>
+
+<script>
+function add()
+{
+	$.post("<?= site_url("admin/viewAddDataPenetapan"); ?>",{},function(data){
+		$("#formAdd").html(data);
+		$("#modal_edit").attr(
+            "url",
+            "<?= site_url("admin/insertData_penetapan"); ?>"
+        );
+		$("#defaultModalLabel").html("Tambah");
+		$("#addModal").modal();
+	}); 
+}
 </script>
 

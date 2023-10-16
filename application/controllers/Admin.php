@@ -9,12 +9,12 @@ class Admin extends CI_Controller {
 		$this->load->model("model_admin","mdl");
 	}
 
-  public function _temmplateTop(){
+  function _temmplateTop(){
     $this->load->view('temp_main/head');
     $this->load->view('temp_main/sidebar');
   }
 
-  public function _templateBottom(){
+  function _templateBottom(){
     $this->load->view('temp_main/footer');
   }
 
@@ -32,7 +32,7 @@ class Admin extends CI_Controller {
     $this->_templateBottom();
   }
 
-  function getData_penetapan(){
+  public function getData_penetapan(){
 		$list = $this->mdl->get_datatables();
         $data = array();
         $no = @$_POST['start'];
@@ -44,8 +44,8 @@ class Admin extends CI_Controller {
             $row[] = $peraturan->jenis_peraturan;
             $row[] = $peraturan->nama_file;
             // add html for action
-            $row[] = '<a href="'.site_url('item/edit/'.$peraturan->id).'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Update</a>
-                    <a href="'.site_url('item/del/'.$peraturan->id).'" onclick="return confirm(\'Yakin hapus data?\')"  class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>';
+            $row[] = '<a href="'.site_url('item/edit/'.$peraturan->id).'" class="btn btn-primary btn-xs">Update</a>
+                    <a href="'.site_url('item/del/'.$peraturan->id).'" onclick="return confirm(\'Yakin hapus data?\')"  class="btn btn-danger btn-xs">Delete</a>';
             $data[] = $row;
         }
         $output = array(
@@ -56,6 +56,10 @@ class Admin extends CI_Controller {
                 );
         // output to json format
         echo json_encode($output);
+  }
+
+  public function viewAddDataPenetapan(){
+    $this->load->view('admin/view_formAddPenetapan');
   }
 
 }
