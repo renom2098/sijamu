@@ -27,7 +27,7 @@
                 </div>
 
             </div>
-            <button type="submit" class="btn btn-primary flaot-end">Add</button>
+            <button type="submit" class="btn btn-primary float-end">Add</button>
         </form>
     </div>
     

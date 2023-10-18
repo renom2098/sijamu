@@ -113,14 +113,16 @@ function edit(id)
 	});
 }
 
-function hapus(id,akun){
+function hapus(id,akun)
+{
 	swal({
 		title: 'Hapus ?',
 		type: 'warning',
+        icon: 'warning',
 		buttons:{
 			cancel: {
 				visible: true,
-				text : 'batal',
+				text : 'Batal',
 				className: 'btn btn-danger'
 			},
 			confirm: {
@@ -152,4 +154,3 @@ function reload_data ()
 	window.location.reload();	
 };
 </script>
-

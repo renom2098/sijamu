@@ -34,7 +34,7 @@ $nama_file = $data->nama_file ?? '';
                 </div>
 
             </div>
-            <button type="submit" class="btn btn-primary flaot-end">Edit</button>
+            <button type="submit" class="btn btn-primary float-end">Edit</button>
         </form>
     </div>
     
