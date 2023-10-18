@@ -78,7 +78,7 @@ class Admin extends CI_Controller {
 		$this->load->library('upload', $config);
 		if ( ! $this->upload->do_upload('nama_file'))
 		{
-				echo "eror!";
+				echo "eror!"; // lebih indahkan
 		}
 		else
 		{

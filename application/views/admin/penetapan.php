@@ -115,7 +115,7 @@ function edit(id)
 
 function download(id)
 {
-	$.attr("url","<?= site_url("admin/downloadPenetapan"); ?>",{id:id});
+	$.post("<?= site_url("admin/downloadPenetapan"); ?>",{id:id});
 }
 
 function hapus(id,akun)
