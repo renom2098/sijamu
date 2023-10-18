@@ -56,11 +56,12 @@ class Model_admin extends CI_Model  {
       return $this->db->count_all_results();
   }
   
-    function insert_dataPenetapan(){
+    function insert_dataPenetapan($nama_file){
         $form = $this->input->post("f");
         $timenow = date("Y-m-d");
         
         $this->db->set($form);
+        $this->db->set("nama_file", $nama_file);
         $this->db->set("_ctimeupload", $timenow);
         $this->db->set("_ctimeupdate", $timenow);
         return $this->db->insert("data_penetapan");

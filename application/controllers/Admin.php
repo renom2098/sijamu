@@ -46,7 +46,8 @@ class Admin extends CI_Controller {
             // add html for action
             $row[] = '<div aria-label="Basic example" class="btn-groupss" role="group">
             <button onclick="edit(`'.$peraturan->id.'`,`'.$peraturan->nama_peraturan.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button> 
-            <button onclick="hapus(`'.$peraturan->id.'`,`'.$peraturan->nama_peraturan.'`)" class="btn btn-sm btn-danger pd-x-25" type="button">Hapus</button> 
+            <button onclick="hapus(`'.$peraturan->id.'`,`'.$peraturan->nama_peraturan.'`)" class="btn btn-sm btn-danger pd-x-25" type="button">Hapus</button>
+            <button onclick="download(`'.$peraturan->id.'`)" class="btn btn-sm btn-secondary pd-x-25" type="button">Download</button>
             </div>';
             $data[] = $row;
         }
@@ -69,8 +70,22 @@ class Admin extends CI_Controller {
   }
 
   public function insert_dataPenetapan(){
-    $this->mdl->insert_dataPenetapan();
-    redirect("admin/penetapan");
+    $config['upload_path']          = './dokumen/penetapan/';
+		$config['allowed_types']        = 'xls|xlsx|pdf';
+		$config['max_size']             = 10000;
+		$config['encrypt_name']			    = FALSE;
+
+		$this->load->library('upload', $config);
+		if ( ! $this->upload->do_upload('nama_file'))
+		{
+				echo "eror!";
+		}
+		else
+		{
+			$nama_file = $this->upload->data("file_name");
+			$this->mdl->insert_dataPenetapan($nama_file);
+      redirect("admin/penetapan");
+		}    
   }
 
   public function update_dataPenetapan(){
@@ -81,5 +96,10 @@ class Admin extends CI_Controller {
   public function delete_dataPenetapan(){
       $this->mdl->delete_dataPenetapan();
   }
+
+  function downloadPenetapan($id){
+		$data = $this->db->get_where('data_penetapan',['id'=>$id])->row();
+		force_download('dokumen/penetapan/'.$data->nama_file,NULL);
+	}
 
 }
