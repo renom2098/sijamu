@@ -66,4 +66,28 @@ class Model_admin extends CI_Model  {
         return $this->db->insert("data_penetapan");
     }
 
+    function view_dataPenetapan(){
+        $id = $this->input->post("id");
+        $this->db->from("data_penetapan");
+        $this->db->where("id", $id);
+        return $this->db->get()->row();
+    }
+
+    function update_dataPenetapan(){
+        $id = $this->input->post("id");
+        $form = $this->input->post("f");
+        $timenow = date("Y-m-d");
+
+        $this->db->set($form);
+        $this->db->set("_ctimeupdate", $timenow);
+        $this->db->where("id", $id);
+        return $this->db->update("data_penetapan");
+    }
+
+    function delete_dataPenetapan(){
+        $id = $this->input->post("id");
+        $this->db->where("id", $id);
+        return $this->db->delete("data_penetapan");
+    }
+
 }

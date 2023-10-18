@@ -32,7 +32,7 @@
                                         <div class="card">
                                             <div class="card-header border-bottom">
                                                 <h4 class="card-title">Penetapan</h4>
-                                                    <button onclick="add()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addData">Tambah Penetapan</button>
+                                                    <button onclick="add()" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addData">Tambah Penetapan</button>
                                             </div>
                                             <div class="card-datatable">
                                                 <table class="dataTables_wrapper dt-bootstrap5 no-footer" id="table">
@@ -68,6 +68,13 @@
         </div>
     </div>
 
+    <!-- Modal Edit User -->
+    <div class="modal fade text-start" id="editData" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div id="formEdit"></div>
+        </div>
+    </div>
+
 <script>
     $(document).ready(function(){
         $('#table').DataTable({
@@ -92,5 +99,57 @@ function add()
 		$("#addModal").modal();
 	}); 
 }
+
+function edit(id)
+{
+	$.post("<?= site_url("admin/viewEditDataPenetapan"); ?>",{id:id},function(data){
+		$("#formEdit").html(data);
+		$("#modal_edit").attr(
+            "url",
+            "<?= site_url("admin/update_dataPenetapan"); ?>"
+        );
+		$("#defaultModalLabel").html("Edit");
+		$("#editModal").modal();
+	});
+}
+
+function hapus(id,akun){
+	swal({
+		title: 'Hapus ?',
+		type: 'warning',
+		buttons:{
+			cancel: {
+				visible: true,
+				text : 'batal',
+				className: 'btn btn-danger'
+			},
+			confirm: {
+				text : 'Ya',
+				className : 'btn btn-success'
+			}
+		}
+	}).then((willDelete) => {
+		if (willDelete) {
+			swal("data telah dihapus", {
+				icon: "success",
+				buttons : {
+					confirm : {
+						className: 'btn btn-success'
+					}
+				}
+			});
+			
+			$.post("<?= site_url("admin/delete_dataPenetapan"); ?>",{id:id},function(){
+			reload_data();
+			});
+			
+		}
+	});
+};
+
+function reload_data ()
+{
+	window.location.reload();	
+};
 </script>
 

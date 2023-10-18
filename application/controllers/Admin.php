@@ -44,8 +44,10 @@ class Admin extends CI_Controller {
             $row[] = $peraturan->jenis_peraturan;
             $row[] = $peraturan->nama_file;
             // add html for action
-            $row[] = '<a href="'.site_url('item/edit/'.$peraturan->id).'" class="btn btn-primary btn-xs">Update</a>
-                    <a href="'.site_url('item/del/'.$peraturan->id).'" onclick="return confirm(\'Yakin hapus data?\')"  class="btn btn-danger btn-xs">Delete</a>';
+            $row[] = '<div aria-label="Basic example" class="btn-groupss" role="group">
+            <button onclick="edit(`'.$peraturan->id.'`,`'.$peraturan->nama_peraturan.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button> 
+            <button onclick="hapus(`'.$peraturan->id.'`,`'.$peraturan->nama_peraturan.'`)" class="btn btn-sm btn-danger pd-x-25" type="button">Hapus</button> 
+            </div>';
             $data[] = $row;
         }
         $output = array(
@@ -61,10 +63,23 @@ class Admin extends CI_Controller {
   public function viewAddDataPenetapan(){
     $this->load->view('admin/view_formAddPenetapan');
   }
+  public function viewEditDataPenetapan(){
+    $data["data"]=$this->mdl->view_dataPenetapan();
+    $this->load->view('admin/view_formEditPenetapan', $data);
+  }
 
   public function insert_dataPenetapan(){
     $this->mdl->insert_dataPenetapan();
     redirect("admin/penetapan");
+  }
+
+  public function update_dataPenetapan(){
+      $this->mdl->update_dataPenetapan();
+      redirect("admin/penetapan");
+  }
+
+  public function delete_dataPenetapan(){
+      $this->mdl->delete_dataPenetapan();
   }
 
 }

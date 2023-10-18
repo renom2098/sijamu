@@ -34,6 +34,10 @@
     <script src="<?= base_url(); ?>assets/app-assets/js/scripts/tables/table-datatables-advanced.js"></script>
     <!-- END: Page JS-->
 
+    <!-- Plugin Tambahan Manual -->
+    <script src="<?= base_url(); ?>assets/plugins/js/sweetalert.min.js"></script>
+    <!-- Plugin Tambahan Manual -->
+
     <script>
         $(window).on('load', function() {
             if (feather) {

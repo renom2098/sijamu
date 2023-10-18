@@ -50,17 +50,17 @@
         <div class="shadow-bottom"></div>
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-                <li class="active nav-item"><a class="d-flex align-items-center" href="<?= base_url(); ?>admin"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Home">Home</span></a>
+                <li class="<?= $this->uri->segment(1) == '' || $this->uri->segment(2) == '' ? 'active' : '' ?> nav-item"><a class="d-flex align-items-center" href="<?= base_url(); ?>admin"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Home">Home</span></a>
                 </li>
-                <li class="nav-item"><a class="d-flex align-items-center" href="<?= base_url(); ?>admin/penetapan"><i data-feather="list"></i><span class="menu-title text-truncate" data-i18n="Penetapan">Penetapan</span></a>
+                <li class="<?= $this->uri->segment(2) == 'penetapan' ? 'active' : '' ?> nav-item"><a class="d-flex align-items-center" href="<?= base_url(); ?>admin/penetapan"><i data-feather="list"></i><span class="menu-title text-truncate" data-i18n="Penetapan">Penetapan</span></a>
                 </li>
-                <li class="nav-item"><a class="d-flex align-items-center" href="index.html"><i data-feather="book-open"></i><span class="menu-title text-truncate" data-i18n="Pelaksanaan">Pelaksanaan</span></a>
+                <li class="<?= $this->uri->segment(2) == 'pelaksanaan' ? 'active' : '' ?> nav-item"><a class="d-flex align-items-center" href="index.html"><i data-feather="book-open"></i><span class="menu-title text-truncate" data-i18n="Pelaksanaan">Pelaksanaan</span></a>
                 </li>
-                <li class="nav-item"><a class="d-flex align-items-center" href="index.html"><i data-feather="clipboard"></i><span class="menu-title text-truncate" data-i18n="Evaluasi">Evaluasi</span></a>
+                <li class="<?= $this->uri->segment(2) == 'evaluasi' ? 'active' : '' ?> nav-item"><a class="d-flex align-items-center" href="index.html"><i data-feather="clipboard"></i><span class="menu-title text-truncate" data-i18n="Evaluasi">Evaluasi</span></a>
                 </li>
-                <li class="nav-item"><a class="d-flex align-items-center" href="index.html"><i data-feather="refresh-cw"></i><span class="menu-title text-truncate" data-i18n="Pengendalian">Pengendalian</span></a>
+                <li class="<?= $this->uri->segment(2) == 'pengendalian' ? 'active' : '' ?> nav-item"><a class="d-flex align-items-center" href="index.html"><i data-feather="refresh-cw"></i><span class="menu-title text-truncate" data-i18n="Pengendalian">Pengendalian</span></a>
                 </li>
-                <li class="nav-item"><a class="d-flex align-items-center" href="index.html"><i data-feather="trending-up"></i><span class="menu-title text-truncate" data-i18n="Peningkatan">Peningkatan</span></a>
+                <li class="<?= $this->uri->segment(2) == 'peningkatan' ? 'active' : '' ?> nav-item"><a class="d-flex align-items-center" href="index.html"><i data-feather="trending-up"></i><span class="menu-title text-truncate" data-i18n="Peningkatan">Peningkatan</span></a>
                 </li>
             </ul>
         </div>
