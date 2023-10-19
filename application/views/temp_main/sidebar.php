@@ -54,7 +54,7 @@
                 </li>
                 <li class="<?= $this->uri->segment(2) == 'penetapan' ? 'active' : '' ?> nav-item"><a class="d-flex align-items-center" href="<?= base_url(); ?>admin/penetapan"><i data-feather="list"></i><span class="menu-title text-truncate" data-i18n="Penetapan">Penetapan</span></a>
                 </li>
-                <li class="<?= $this->uri->segment(2) == 'pelaksanaan' ? 'active' : '' ?> nav-item"><a class="d-flex align-items-center" href="index.html"><i data-feather="book-open"></i><span class="menu-title text-truncate" data-i18n="Pelaksanaan">Pelaksanaan</span></a>
+                <li class="<?= $this->uri->segment(2) == 'pelaksanaan' ? 'active' : '' ?> nav-item"><a class="d-flex align-items-center" href="<?= base_url(); ?>admin/pelaksanaan"><i data-feather="book-open"></i><span class="menu-title text-truncate" data-i18n="Pelaksanaan">Pelaksanaan</span></a>
                 </li>
                 <li class="<?= $this->uri->segment(2) == 'evaluasi' ? 'active' : '' ?> nav-item"><a class="d-flex align-items-center" href="index.html"><i data-feather="clipboard"></i><span class="menu-title text-truncate" data-i18n="Evaluasi">Evaluasi</span></a>
                 </li>

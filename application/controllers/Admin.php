@@ -25,7 +25,7 @@ class Admin extends CI_Controller {
     $this->_templateBottom();
   }
 
-  // Penetapan
+  // Bagian Penetapan
   public function penetapan(){
     $this->_temmplateTop();
     $this->load->view('admin/penetapan');
@@ -78,7 +78,7 @@ class Admin extends CI_Controller {
 		$this->load->library('upload', $config);
 		if ( ! $this->upload->do_upload('nama_file'))
 		{
-				echo "eror!"; // lebih indahkan
+				echo "eror!"; // lebih diindahkan
 		}
 		else
 		{
@@ -97,9 +97,7 @@ class Admin extends CI_Controller {
 		$this->load->library('upload', $config);
 		if ( ! $this->upload->do_upload('nama_file'))
 		{
-				$nama_file = $this->upload->data("file_name");
-        $this->mdl->update_dataPenetapan($nama_file);
-        redirect("admin/penetapan");
+				echo "eror!"; // lebih diindahkan
 		}
 		else
 		{
@@ -118,5 +116,14 @@ class Admin extends CI_Controller {
 		$data = $this->db->get_where('data_penetapan',['id'=>$id])->row();
 		force_download('dokumen/penetapan/'.$data->nama_file,NULL);
 	}
+  // Bagian Penetapan
+
+  // Bagian Pelaksanaan
+  public function pelaksanaan(){
+    $this->_temmplateTop();
+    $this->load->view('admin/pelaksanaan');
+    $this->_templateBottom();
+  }
+  // Bagian Pelaksanaan
 
 }
