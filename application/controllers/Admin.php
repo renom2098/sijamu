@@ -89,15 +89,32 @@ class Admin extends CI_Controller {
   }
 
   public function update_dataPenetapan(){
-      $this->mdl->update_dataPenetapan();
+    $config['upload_path']          = './dokumen/penetapan/';
+		$config['allowed_types']        = 'xls|xlsx|pdf';
+		$config['max_size']             = 10000;
+		$config['encrypt_name']			    = FALSE;
+
+		$this->load->library('upload', $config);
+		if ( ! $this->upload->do_upload('nama_file'))
+		{
+				$nama_file = $this->upload->data("file_name");
+        $this->mdl->update_dataPenetapan($nama_file);
+        redirect("admin/penetapan");
+		}
+		else
+		{
+			$nama_file = $this->upload->data("file_name");
+      $this->mdl->update_dataPenetapan($nama_file);
       redirect("admin/penetapan");
+		}
+      
   }
 
   public function delete_dataPenetapan(){
       $this->mdl->delete_dataPenetapan();
   }
 
-  function downloadPenetapan($id){
+  public function downloadPenetapan($id){
 		$data = $this->db->get_where('data_penetapan',['id'=>$id])->row();
 		force_download('dokumen/penetapan/'.$data->nama_file,NULL);
 	}

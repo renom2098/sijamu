@@ -11,7 +11,7 @@ $nama_file = $data->nama_file ?? '';
     </div>
     <div class="modal-body">
 
-        <form class="form form-vertical" action="<?= base_url(); ?>admin/update_dataPenetapan" method="post">
+        <form class="form form-vertical" action="<?= base_url(); ?>admin/update_dataPenetapan" method="post" enctype="multipart/form-data">
         <input type="hidden" class="form-control" name="id" value="<?= $id; ?>">
             <div class="row">
                 <div class="col-12">
@@ -29,7 +29,7 @@ $nama_file = $data->nama_file ?? '';
                 <div class="col-12">
                     <div class="mb-1">
                         <label class="form-label" for="nama_file">Nama File</label>
-                        <input type="text" id="nama_file" class="form-control" name="f[nama_file]" placeholder="Nama Peraturan" value="<?= $nama_peraturan; ?>">
+                        <input type="file" class="form-control" name="nama_file">
                     </div>
                 </div>
 

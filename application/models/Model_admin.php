@@ -74,12 +74,13 @@ class Model_admin extends CI_Model  {
         return $this->db->get()->row();
     }
 
-    function update_dataPenetapan(){
+    function update_dataPenetapan($nama_file){
         $id = $this->input->post("id");
         $form = $this->input->post("f");
         $timenow = date("Y-m-d");
 
         $this->db->set($form);
+        $this->db->set("nama_file", $nama_file);
         $this->db->set("_ctimeupdate", $timenow);
         $this->db->where("id", $id);
         return $this->db->update("data_penetapan");
