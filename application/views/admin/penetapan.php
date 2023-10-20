@@ -39,9 +39,9 @@
                                                     <thead>
                                                         <tr>
                                                             <th>No</th>
-                                                            <th>Nama File</th>
-                                                            <th>Jenis File</th>
-                                                            <th>File</th>
+                                                            <th>Nama Pengaturan</th>
+                                                            <th>Jenis Pengaturan</th>
+                                                            <th>Tanggal Ditetapkan</th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </thead>

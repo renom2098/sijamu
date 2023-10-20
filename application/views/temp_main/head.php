@@ -14,16 +14,12 @@
     <link rel="shortcut icon" type="image/x-icon" href="<?= base_url(); ?>assets/app-assets/images/ico/logo_unsub_baru.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
-    
-
-    
-
-
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/app-assets/vendors/css/vendors.min.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/app-assets/vendors/css/tables/datatable/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/app-assets/vendors/css/pickers/pickadate/pickadate.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -38,6 +34,7 @@
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/app-assets/css/core/menu/menu-types/vertical-menu.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/app-assets/css/plugins/forms/pickers/form-flat-pickr.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/app-assets/css/plugins/forms/pickers/form-pickadate.css">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->

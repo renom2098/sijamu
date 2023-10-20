@@ -19,6 +19,12 @@
                         <input type="text" id="jenis-peraturan" class="form-control" name="f[jenis_peraturan]" placeholder="Jenis Peraturan">
                     </div>
                 </div>
+                <section id="flatpickr">
+                    <div class="col-12">
+                        <label class="form-label" for="tanggal_ditetapkan">Tanggal Ditetapkan</label>
+                        <input type="text" id="tanggal_ditetapkan" class="form-control flatpickr-basic flatpickr-input active" placeholder="YYYY-MM-DD" readonly="readonly">
+                    </div>                
+                </section>
                 <div class="col-12">
                     <div class="mb-1">
                         <label class="form-label" for="nama_file">Nama File</label>
@@ -32,3 +38,12 @@
     </div>
     
 </div>
+
+<script>
+    $('#tanggal_ditetapkan').flatpickr({
+        altInput: true,
+        dateFormat: "YYYY-MM-DD",
+        allowInput: true
+    });
+    
+</script>

@@ -42,7 +42,7 @@ class Admin extends CI_Controller {
             $row[] = $no.".";
             $row[] = $peraturan->nama_peraturan;
             $row[] = $peraturan->jenis_peraturan;
-            $row[] = $peraturan->nama_file;
+            $row[] = $peraturan->tanggal_ditetapkan;
             // add html for action
             $row[] = '<div aria-label="Basic example" class="btn-groupss" role="group">
             <button onclick="edit(`'.$peraturan->id.'`,`'.$peraturan->nama_peraturan.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button> 
