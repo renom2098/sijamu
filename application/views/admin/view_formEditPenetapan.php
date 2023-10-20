@@ -2,6 +2,7 @@
 $id = $data->id ?? '';
 $nama_peraturan = $data->nama_peraturan ?? '';
 $jenis_peraturan = $data->jenis_peraturan ?? '';
+$tanggal_ditetapkan = $data->tanggal_ditetapkan ?? '';
 $nama_file = $data->nama_file ?? '';
 ?>
 <div class="modal-content">
@@ -27,6 +28,10 @@ $nama_file = $data->nama_file ?? '';
                     </div>
                 </div>
                 <div class="col-12">
+                    <label class="form-label" for="tanggal_ditetapkan">Tanggal Ditetapkan</label>
+                    <input type="text" id="tanggal_ditetapkan" class="form-control flatpickr-basic flatpickr-input active" name="f[tanggal_ditetapkan]" placeholder="<?= $tanggal_ditetapkan; ?>" readonly="readonly" value="<?= $tanggal_ditetapkan; ?>" >
+                </div> 
+                <div class="col-12">
                     <div class="mb-1">
                         <label class="form-label" for="nama_file">Nama File</label>
                         <input type="file" class="form-control" name="nama_file">
@@ -39,3 +44,14 @@ $nama_file = $data->nama_file ?? '';
     </div>
     
 </div>
+
+<script>
+    $('#tanggal_ditetapkan').flatpickr({
+        altInput: true,
+        dateFormat: "Y-m-d",
+        allowInput: true,
+        parseDate: (datestr, format) => {
+            return moment(datestr, format, true).toDate();
+        }
+    });
+</script>

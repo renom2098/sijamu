@@ -62,14 +62,14 @@
     <!-- END: Content-->
 
     <!-- Modal Tambah User -->
-    <div class="modal fade text-start" id="addData" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal fade text-start" id="addData" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true" data-bs-focus="false">
         <div class="modal-dialog modal-dialog-centered">
             <div id="formAdd"></div>
         </div>
     </div>
 
     <!-- Modal Edit User -->
-    <div class="modal fade text-start" id="editData" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal fade text-start" id="editData" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true" data-bs-focus="false">
         <div class="modal-dialog modal-dialog-centered">
             <div id="formEdit"></div>
         </div>

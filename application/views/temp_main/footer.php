@@ -14,11 +14,11 @@
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    <script src="<?= base_url(); ?>assets/app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
     <script src="<?= base_url(); ?>assets/app-assets/vendors/js/pickers/pickadate/picker.js"></script>
     <script src="<?= base_url(); ?>assets/app-assets/vendors/js/pickers/pickadate/picker.date.js"></script>
     <script src="<?= base_url(); ?>assets/app-assets/vendors/js/pickers/pickadate/picker.time.js"></script>
     <script src="<?= base_url(); ?>assets/app-assets/vendors/js/pickers/pickadate/legacy.js"></script>
+    <script src="<?= base_url(); ?>assets/app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
     <!-- END: Page Vendor JS-->
     
     <!-- BEGIN: Page Vendor JS-->
