@@ -6,7 +6,8 @@ class Admin extends CI_Controller {
   function __construct()
 	{
 		parent::__construct();
-		$this->load->model("model_admin","mdl");
+		$this->load->model("model_penetapan");
+    $this->load->model("model_pelaksanaan");
 	}
 
   function _temmplateTop(){
@@ -33,28 +34,28 @@ class Admin extends CI_Controller {
   }
 
   public function getData_penetapan(){
-		$list = $this->mdl->get_datatables();
+		$list = $this->model_penetapan->get_datatables();
         $data = array();
         $no = @$_POST['start'];
-        foreach ($list as $peraturan) {
+        foreach ($list as $penetapan) {
             $no++;
             $row = array();
             $row[] = $no.".";
-            $row[] = $peraturan->nama_peraturan;
-            $row[] = $peraturan->jenis_peraturan;
-            $row[] = $peraturan->tanggal_ditetapkan;
+            $row[] = $penetapan->nama_peraturan;
+            $row[] = $penetapan->jenis_peraturan;
+            $row[] = $penetapan->tanggal_ditetapkan;
             // add html for action
             $row[] = '<div aria-label="Basic example" class="btn-groupss" role="group">
-            <button onclick="edit(`'.$peraturan->id.'`,`'.$peraturan->nama_peraturan.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button> 
-            <button onclick="hapus(`'.$peraturan->id.'`,`'.$peraturan->nama_peraturan.'`)" class="btn btn-sm btn-danger pd-x-25" type="button">Hapus</button>
-            <button onclick="download(`'.$peraturan->id.'`)" class="btn btn-sm btn-secondary pd-x-25" type="button">Download</button>
+            <button onclick="edit(`'.$penetapan->id.'`,`'.$penetapan->nama_peraturan.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button> 
+            <button onclick="hapus(`'.$penetapan->id.'`,`'.$penetapan->nama_peraturan.'`)" class="btn btn-sm btn-danger pd-x-25" type="button">Hapus</button>
+            <button onclick="download(`'.$penetapan->id.'`)" class="btn btn-sm btn-secondary pd-x-25" type="button">Download</button>
             </div>';
             $data[] = $row;
         }
         $output = array(
                     "draw" => @$_POST['draw'],
-                    "recordsTotal" => $this->mdl->count_all(),
-                    "recordsFiltered" => $this->mdl->count_filtered(),
+                    "recordsTotal" => $this->model_penetapan->count_all(),
+                    "recordsFiltered" => $this->model_penetapan->count_filtered(),
                     "data" => $data,
                 );
         // output to json format
@@ -64,8 +65,9 @@ class Admin extends CI_Controller {
   public function viewAddDataPenetapan(){
     $this->load->view('admin/view_formAddPenetapan');
   }
+
   public function viewEditDataPenetapan(){
-    $data["data"]=$this->mdl->view_dataPenetapan();
+    $data["data"]=$this->model_penetapan->view_dataPenetapan();
     $this->load->view('admin/view_formEditPenetapan', $data);
   }
 
@@ -83,7 +85,7 @@ class Admin extends CI_Controller {
 		else
 		{
 			$nama_file = $this->upload->data("file_name");
-			$this->mdl->insert_dataPenetapan($nama_file);
+			$this->model_penetapan->insert_dataPenetapan($nama_file);
       redirect("admin/penetapan");
 		}    
   }
@@ -102,14 +104,14 @@ class Admin extends CI_Controller {
 		else
 		{
 			$nama_file = $this->upload->data("file_name");
-      $this->mdl->update_dataPenetapan($nama_file);
+      $this->model_penetapan->update_dataPenetapan($nama_file);
       redirect("admin/penetapan");
 		}
       
   }
 
   public function delete_dataPenetapan(){
-      $this->mdl->delete_dataPenetapan();
+      $this->model_penetapan->delete_dataPenetapan();
   }
 
   public function downloadPenetapan($id){
@@ -124,6 +126,92 @@ class Admin extends CI_Controller {
     $this->load->view('admin/pelaksanaan');
     $this->_templateBottom();
   }
+
+  public function getData_pelaksanaan(){
+		$list = $this->model_pelaksanaan->get_datatables();
+        $data = array();
+        $no = @$_POST['start'];
+        foreach ($list as $pelaksanaan) {
+            $no++;
+            $row = array();
+            $row[] = $no.".";
+            $row[] = $pelaksanaan->nama_dok_pelaksanaan;
+            $row[] = $pelaksanaan->jenis_dok_pelaksanaan;
+            $row[] = $pelaksanaan->tanggal_ditetapkan;
+            // add html for action
+            $row[] = '<div aria-label="Basic example" class="btn-groupss" role="group">
+            <button onclick="edit(`'.$pelaksanaan->id.'`,`'.$pelaksanaan->nama_dok_pelaksanaan.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button> 
+            <button onclick="hapus(`'.$pelaksanaan->id.'`,`'.$pelaksanaan->nama_dok_pelaksanaan.'`)" class="btn btn-sm btn-danger pd-x-25" type="button">Hapus</button>
+            <button onclick="download(`'.$pelaksanaan->id.'`)" class="btn btn-sm btn-secondary pd-x-25" type="button">Download</button>
+            </div>';
+            $data[] = $row;
+        }
+        $output = array(
+                    "draw" => @$_POST['draw'],
+                    "recordsTotal" => $this->model_pelaksanaan->count_all(),
+                    "recordsFiltered" => $this->model_pelaksanaan->count_filtered(),
+                    "data" => $data,
+                );
+        // output to json format
+        echo json_encode($output);
+  }
+
+  public function viewAddDataPelaksanaan(){
+    $this->load->view('admin/view_formAddPelaksanaan');
+  }
+
+  public function viewEditDataPelaksanaan(){
+    $data["data"]=$this->model_pelaksanaan->view_dataPelaksanaan();
+    $this->load->view('admin/view_formEditPelaksanaan', $data);
+  }
+
+  public function insert_dataPelaksanaan(){
+    $config['upload_path']          = './dokumen/pelaksanaan/';
+		$config['allowed_types']        = 'xls|xlsx|pdf';
+		$config['max_size']             = 10000;
+		$config['encrypt_name']			    = FALSE;
+
+		$this->load->library('upload', $config);
+		if ( ! $this->upload->do_upload('nama_file'))
+		{
+				echo "eror!"; // lebih diindahkan
+		}
+		else
+		{
+			$nama_file = $this->upload->data("file_name");
+			$this->model_pelaksanaan->insert_dataPelaksanaan($nama_file);
+      redirect("admin/pelaksanaan");
+		}    
+  }
+
+  public function update_dataPelaksanaan(){
+    $config['upload_path']          = './dokumen/pelaksanaan/';
+		$config['allowed_types']        = 'xls|xlsx|pdf';
+		$config['max_size']             = 10000;
+		$config['encrypt_name']			    = FALSE;
+
+		$this->load->library('upload', $config);
+		if ( ! $this->upload->do_upload('nama_file'))
+		{
+				echo "eror!"; // lebih diindahkan
+		}
+		else
+		{
+			$nama_file = $this->upload->data("file_name");
+      $this->model_pelaksanaan->update_dataPelaksanaan($nama_file);
+      redirect("admin/pelaksanaan");
+		}
+      
+  }
+
+  public function delete_dataPelaksanaan(){
+      $this->model_pelaksanaan->delete_dataPelaksanaan();
+  }
+
+  public function downloadpelaksanaan($id){
+		$data = $this->db->get_where('data_pelaksanaan',['id'=>$id])->row();
+		force_download('dokumen/pelaksanaan/'.$data->nama_file,NULL);
+	}
   // Bagian Pelaksanaan
 
 }

@@ -1,14 +1,14 @@
 <?php
 
-class Model_admin extends CI_Model  {
+class Model_penetapan extends CI_Model  {
 
     function __construct(){
         parent::__construct();
     }
 
   // start datatables
-  var $column_order = array(null, 'nama_peraturan', 'jenis_peraturan', 'nama_file'); //set column field database for datatable orderable
-  var $column_search = array('nama_peraturan', 'jenis_peraturan', 'nama_file'); //set column field database for datatable searchable
+  var $column_order = array(null, 'nama_peraturan', 'jenis_peraturan', 'tanggal_ditetapkan', 'nama_file'); //set column field database for datatable orderable
+  var $column_search = array('nama_peraturan', 'jenis_peraturan', 'tanggal_ditetapkan', 'nama_file'); //set column field database for datatable searchable
   var $order = array('id' => 'asc'); //default order 
  
   private function _get_datatables_query() {

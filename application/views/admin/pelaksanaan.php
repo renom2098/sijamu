@@ -31,8 +31,8 @@
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-header border-bottom">
-                                                <h4 class="card-title">Penetapan</h4>
-                                                    <button onclick="add()" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addData">Tambah Penetapan</button>
+                                                <h4 class="card-title">Pelaksanaan</h4>
+                                                    <button onclick="add()" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addData">Tambah Dokumen Pelaksanaan</button>
                                             </div>
                                             <div class="card-datatable">
                                                 <table class="dataTables_wrapper dt-bootstrap5 no-footer" id="table">
@@ -41,7 +41,7 @@
                                                             <th>No</th>
                                                             <th>Nama File</th>
                                                             <th>Jenis File</th>
-                                                            <th>File</th>
+                                                            <th>Tanggal Ditetapkan</th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </thead>
@@ -81,7 +81,7 @@
             "processing": false,
             "serverSide": false,
             "paging": true,
-            "ajax": "<?= site_url('admin/getData_penetapan'); ?>"
+            "ajax": "<?= site_url('admin/getData_pelaksanaan'); ?>"
         })
     });
 </script>
@@ -89,11 +89,11 @@
 <script>
 function add()
 {
-	$.post("<?= site_url("admin/viewAddDataPenetapan"); ?>",{},function(data){
+	$.post("<?= site_url("admin/viewAddDataPelaksanaan"); ?>",{},function(data){
 		$("#formAdd").html(data);
 		$("#modal_edit").attr(
             "url",
-            "<?= site_url("admin/insert_dataPenetapan"); ?>"
+            "<?= site_url("admin/insert_dataPelaksanaan"); ?>"
         );
 		$("#defaultModalLabel").html("Tambah");
 		$("#addModal").modal();
@@ -102,11 +102,11 @@ function add()
 
 function edit(id)
 {
-	$.post("<?= site_url("admin/viewEditDataPenetapan"); ?>",{id:id},function(data){
+	$.post("<?= site_url("admin/viewEditDataPelaksanaan"); ?>",{id:id},function(data){
 		$("#formEdit").html(data);
 		$("#modal_edit").attr(
             "url",
-            "<?= site_url("admin/update_dataPenetapan"); ?>"
+            "<?= site_url("admin/update_dataPelaksanaan"); ?>"
         );
 		$("#defaultModalLabel").html("Edit");
 		$("#editModal").modal();
@@ -115,7 +115,7 @@ function edit(id)
 
 function download(id)
 {
-    var url = "<?= site_url("admin/downloadPenetapan/"); ?>" + id;
+    var url = "<?= site_url("admin/downloadPelaksanaan/"); ?>" + id;
 	$.post(url);
 }
 
@@ -147,7 +147,7 @@ function hapus(id,akun)
 				}
 			});
 			
-			$.post("<?= site_url("admin/delete_dataPenetapan"); ?>",{id:id},function(){
+			$.post("<?= site_url("admin/delete_dataPelaksanaan"); ?>",{id:id},function(){
 			reload_data();
 			});
 			
