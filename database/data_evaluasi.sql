@@ -24,34 +24,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_pelaksanaan`
+-- Table structure for table `data_evaluasi`
 --
 
-CREATE TABLE `data_pelaksanaan` (
+CREATE TABLE `data_evaluasi` (
   `id` int(11) NOT NULL,
-  `nama_dok_pelaksanaan` varchar(128) DEFAULT NULL,
-  `jenis_dok_pelaksanaan` varchar(128) DEFAULT NULL,
-  `tanggal_ditetapkan` date DEFAULT NULL,
+  `nama_dok_evaluasi` varchar(128) DEFAULT NULL,
+  `jenis_dok_evaluasi` varchar(128) DEFAULT NULL,
+  `tanggal_ditetapkan` varchar(128) DEFAULT NULL,
   `nama_file` varchar(128) DEFAULT NULL,
   `_ctimeupload` date DEFAULT NULL,
   `_ctimeupdate` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `data_pelaksanaan`
+-- Dumping data for table `data_evaluasi`
 --
 
-INSERT INTO `data_pelaksanaan` (`id`, `nama_dok_pelaksanaan`, `jenis_dok_pelaksanaan`, `tanggal_ditetapkan`, `nama_file`, `_ctimeupload`, `_ctimeupdate`) VALUES
-(1, 'nama pelaksanaan 2', 'jenis pelaksanaan 2', '2023-10-01', 'attachment.pdf', '2023-10-21', '2023-10-21');
+INSERT INTO `data_evaluasi` (`id`, `nama_dok_evaluasi`, `jenis_dok_evaluasi`, `tanggal_ditetapkan`, `nama_file`, `_ctimeupload`, `_ctimeupdate`) VALUES
+(1, 'evaluasi 1', 'evaluasi 1', '2023-10-01', '17_OKTOBER_2023_RAPAT_PERSIAPAN_APT_8_1.pdf', '2023-10-21', '2023-10-21');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `data_pelaksanaan`
+-- Indexes for table `data_evaluasi`
 --
-ALTER TABLE `data_pelaksanaan`
+ALTER TABLE `data_evaluasi`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -59,10 +59,10 @@ ALTER TABLE `data_pelaksanaan`
 --
 
 --
--- AUTO_INCREMENT for table `data_pelaksanaan`
+-- AUTO_INCREMENT for table `data_evaluasi`
 --
-ALTER TABLE `data_pelaksanaan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `data_evaluasi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
