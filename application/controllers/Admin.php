@@ -8,6 +8,7 @@ class Admin extends CI_Controller {
 		parent::__construct();
 		$this->load->model("model_penetapan");
     $this->load->model("model_pelaksanaan");
+    $this->load->model("model_evaluasi");
 	}
 
   function _temmplateTop(){
@@ -208,10 +209,104 @@ class Admin extends CI_Controller {
       $this->model_pelaksanaan->delete_dataPelaksanaan();
   }
 
-  public function downloadpelaksanaan($id){
+  public function downloadPelaksanaan($id){
 		$data = $this->db->get_where('data_pelaksanaan',['id'=>$id])->row();
 		force_download('dokumen/pelaksanaan/'.$data->nama_file,NULL);
 	}
   // Bagian Pelaksanaan
+
+  // Bagian Evaluasi
+  public function evaluasi(){
+    $this->_temmplateTop();
+    $this->load->view('admin/evaluasi');
+    $this->_templateBottom();
+  }
+
+  public function getData_evaluasi(){
+		$list = $this->model_evaluasi->get_datatables();
+        $data = array();
+        $no = @$_POST['start'];
+        foreach ($list as $evaluasi) {
+            $no++;
+            $row = array();
+            $row[] = $no.".";
+            $row[] = $evaluasi->nama_dok_evaluasi;
+            $row[] = $evaluasi->jenis_dok_evaluasi;
+            $row[] = $evaluasi->tanggal_ditetapkan;
+            // add html for action
+            $row[] = '<div aria-label="Basic example" class="btn-groupss" role="group">
+            <button onclick="edit(`'.$evaluasi->id.'`,`'.$evaluasi->nama_dok_evaluasi.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button> 
+            <button onclick="hapus(`'.$evaluasi->id.'`,`'.$evaluasi->nama_dok_evaluasi.'`)" class="btn btn-sm btn-danger pd-x-25" type="button">Hapus</button>
+            <button onclick="download(`'.$evaluasi->id.'`)" class="btn btn-sm btn-secondary pd-x-25" type="button">Download</button>
+            </div>';
+            $data[] = $row;
+        }
+        $output = array(
+                    "draw" => @$_POST['draw'],
+                    "recordsTotal" => $this->model_evaluasi->count_all(),
+                    "recordsFiltered" => $this->model_evaluasi->count_filtered(),
+                    "data" => $data,
+                );
+        // output to json format
+        echo json_encode($output);
+  }
+
+  public function viewAddDataEvaluasi(){
+    $this->load->view('admin/view_formAddevaluasi');
+  }
+
+  public function viewEditDataEvaluasi(){
+    $data["data"]=$this->model_evaluasi->view_dataEvaluasi();
+    $this->load->view('admin/view_formEditevaluasi', $data);
+  }
+
+  public function insert_dataEvaluasi(){
+    $config['upload_path']          = './dokumen/evaluasi/';
+		$config['allowed_types']        = 'xls|xlsx|pdf';
+		$config['max_size']             = 10000;
+		$config['encrypt_name']			    = FALSE;
+
+		$this->load->library('upload', $config);
+		if ( ! $this->upload->do_upload('nama_file'))
+		{
+				echo "eror!"; // lebih diindahkan
+		}
+		else
+		{
+			$nama_file = $this->upload->data("file_name");
+			$this->model_evaluasi->insert_dataEvaluasi($nama_file);
+      redirect("admin/evaluasi");
+		}    
+  }
+
+  public function update_dataEvaluasi(){
+    $config['upload_path']          = './dokumen/evaluasi/';
+		$config['allowed_types']        = 'xls|xlsx|pdf';
+		$config['max_size']             = 10000;
+		$config['encrypt_name']			    = FALSE;
+
+		$this->load->library('upload', $config);
+		if ( ! $this->upload->do_upload('nama_file'))
+		{
+				echo "eror!"; // lebih diindahkan
+		}
+		else
+		{
+			$nama_file = $this->upload->data("file_name");
+      $this->model_evaluasi->update_dataEvaluasi($nama_file);
+      redirect("admin/evaluasi");
+		}
+      
+  }
+
+  public function delete_dataEvaluasi(){
+      $this->model_evaluasi->delete_dataevaluasi();
+  }
+
+  public function downloadEvaluasi($id){
+		$data = $this->db->get_where('data_evaluasi',['id'=>$id])->row();
+		force_download('dokumen/evaluasi/'.$data->nama_file,NULL);
+	}
+  // Bagian Evaluasi
 
 }
