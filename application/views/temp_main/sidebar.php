@@ -58,9 +58,9 @@
                 </li>
                 <li class="<?= $this->uri->segment(2) == 'evaluasi' ? 'active' : '' ?> nav-item"><a class="d-flex align-items-center" href="<?= base_url(); ?>admin/evaluasi"><i data-feather="clipboard"></i><span class="menu-title text-truncate" data-i18n="Evaluasi">Evaluasi</span></a>
                 </li>
-                <li class="<?= $this->uri->segment(2) == 'pengendalian' ? 'active' : '' ?> nav-item"><a class="d-flex align-items-center" href="index.html"><i data-feather="refresh-cw"></i><span class="menu-title text-truncate" data-i18n="Pengendalian">Pengendalian</span></a>
+                <li class="<?= $this->uri->segment(2) == 'pengendalian' ? 'active' : '' ?> nav-item"><a class="d-flex align-items-center" href="<?= base_url(); ?>admin/pengendalian"><i data-feather="refresh-cw"></i><span class="menu-title text-truncate" data-i18n="Pengendalian">Pengendalian</span></a>
                 </li>
-                <li class="<?= $this->uri->segment(2) == 'peningkatan' ? 'active' : '' ?> nav-item"><a class="d-flex align-items-center" href="index.html"><i data-feather="trending-up"></i><span class="menu-title text-truncate" data-i18n="Peningkatan">Peningkatan</span></a>
+                <li class="<?= $this->uri->segment(2) == 'peningkatan' ? 'active' : '' ?> nav-item"><a class="d-flex align-items-center" href="<?= base_url(); ?>admin/peningkatan"><i data-feather="trending-up"></i><span class="menu-title text-truncate" data-i18n="Peningkatan">Peningkatan</span></a>
                 </li>
             </ul>
         </div>

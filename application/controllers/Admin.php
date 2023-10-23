@@ -9,6 +9,7 @@ class Admin extends CI_Controller {
 		$this->load->model("model_penetapan");
     $this->load->model("model_pelaksanaan");
     $this->load->model("model_evaluasi");
+    $this->load->model("model_pengendalian");
 	}
 
   function _temmplateTop(){
@@ -308,5 +309,74 @@ class Admin extends CI_Controller {
 		force_download('dokumen/evaluasi/'.$data->nama_file,NULL);
 	}
   // Bagian Evaluasi
+
+  // Bagian Pengendalian
+  public function pengendalian(){
+    $this->_temmplateTop();
+    $this->load->view('admin/pengendalian');
+    $this->_templateBottom();
+  }
+
+  public function getData_pengendalian(){
+		$list = $this->model_pengendalian->get_datatables();
+        $data = array();
+        $no = @$_POST['start'];
+        foreach ($list as $pengendalian) {
+            $no++;
+            $row = array();
+            $row[] = $no.".";
+            $row[] = $pengendalian->nama_bidang_pengaturan_standar;
+            $row[] = $pengendalian->_ctimeupload;
+            // add html for action
+            $row[] = '<div aria-label="Basic example" class="btn-groupss" role="group">
+            <button onclick="edit(`'.$pengendalian->id.'`,`'.$pengendalian->nama_bidang_pengaturan_standar.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button>
+            <button onclick="review(`'.$pengendalian->id.'`,`'.$pengendalian->nama_bidang_pengaturan_standar.'`)" class="btn btn-sm btn-info pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#reviewData">Review</button>
+            <button onclick="hapus(`'.$pengendalian->id.'`,`'.$pengendalian->nama_bidang_pengaturan_standar.'`)" class="btn btn-sm btn-danger pd-x-25" type="button">Hapus</button>
+            </div>';
+            $data[] = $row;
+        }
+        $output = array(
+                    "draw" => @$_POST['draw'],
+                    "recordsTotal" => $this->model_pengendalian->count_all(),
+                    "recordsFiltered" => $this->model_pengendalian->count_filtered(),
+                    "data" => $data,
+                );
+        // output to json format
+        echo json_encode($output);
+  }
+
+  public function viewAddDataPengendalian(){
+    $this->load->view('admin/view_formAddPengendalian');
+  }
+
+  public function viewEditDataPengendalian(){
+    $data["data"]=$this->model_pengendalian->view_dataPengendalian();
+    $this->load->view('admin/view_formEditPengendalian', $data);
+  }
+
+  public function viewReviewDataPengendalian(){
+    $data["data"]=$this->model_pengendalian->view_dataPengendalian();
+    $this->load->view('admin/view_formReviewPengendalian', $data);
+  }
+
+  public function insert_dataPengendalian(){
+    $this->model_pengendalian->insert_dataPengendalian();
+    redirect("admin/pengendalian");
+  }
+
+  public function update_dataPengendalian(){
+    $this->model_pengendalian->update_dataPengendalian();
+    redirect("admin/pengendalian");
+  }
+
+  public function delete_dataPengendalian(){
+    $this->model_pengendalian->delete_datapengendalian();
+  }
+
+  public function downloadPengendalian($id){
+		$data = $this->db->get_where('data_pengendalian',['id'=>$id])->row();
+		force_download('dokumen/pengendalian/'.$data->nama_file,NULL);
+	}
+  // Bagian Pengendalian
 
 }
