@@ -22,7 +22,11 @@ $tautan_bukti_pelaksanaan_rtl = $data->tautan_bukti_pelaksanaan_rtl ?? '';
                         <input type="text" id="nama-peraturan" class="form-control" name="f[nama_bidang_pengaturan_standar]" value="<?= $nama_bidang_pengaturan_standar ?>">
                     </div>
                 </div>
-                <hr class="invoice-spacing">
+
+                <div class="divider divider-primary">
+                    <div class="divider-text">Rapat Tinjauan Manajemen</div>
+                </div>
+
                 <div class="col-12">
                     <div class="mb-1">
                         <label class="form-label" for="tautan-pelaksanaan-rtm">Tautan Pelaksanaan RTM</label>
@@ -35,7 +39,11 @@ $tautan_bukti_pelaksanaan_rtl = $data->tautan_bukti_pelaksanaan_rtl ?? '';
                         <input type="text" id="tautan-bukti-pelaksanaan-rtm" class="form-control" name="f[tautan_bukti_pelaksanaan_rtm]" value="<?= $tautan_bukti_pelaksanaan_rtm ?>">
                     </div>
                 </div>
-                <hr class="invoice-spacing">
+
+                <div class="divider divider-primary">
+                    <div class="divider-text">Rencana Tindak Lanjut</div>
+                </div>
+                
                 <div class="col-12">
                     <div class="mb-1">
                         <label class="form-label" for="tautan-pelaksanaan-rtl">Tautan Pelaksanaan RTL</label>

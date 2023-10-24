@@ -20,7 +20,10 @@ $tautan_bukti_pelaksanaan_rtl = $data->tautan_bukti_pelaksanaan_rtl ?? '';
                         <span><?= $nama_bidang_pengaturan_standar; ?></span>
                     </div>
                 </div>
-                <hr class="invoice-spacing">
+                <div class="divider divider-primary">
+                    <div class="divider-text">Rapat Tinjauan Manajemen</div>
+                </div>
+
                 <div class="col-12">
                     <div class="mb-1">
                         <a href="<?= $tautan_pelaksanaan_rtm ?>" class="btn btn-info">Tautan Pelaksanaan RTM</a>
@@ -31,7 +34,11 @@ $tautan_bukti_pelaksanaan_rtl = $data->tautan_bukti_pelaksanaan_rtl ?? '';
                         <a href="<?= $tautan_bukti_pelaksanaan_rtm ?>" class="btn btn-info">Tautan Bukti Pelaksanaan RTM</a>
                     </div>
                 </div>
-                <hr class="invoice-spacing">
+
+                <div class="divider divider-primary">
+                    <div class="divider-text">Rencana Tindak Lanjut</div>
+                </div>
+
                 <div class="col-12">
                     <div class="mb-1">
                         <a href="<?= $tautan_pelaksanaan_rtl ?>" class="btn btn-primary">Tautan Pelaksanaan RTL</a>
