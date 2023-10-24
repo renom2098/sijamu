@@ -10,6 +10,7 @@ class Admin extends CI_Controller {
     $this->load->model("model_pelaksanaan");
     $this->load->model("model_evaluasi");
     $this->load->model("model_pengendalian");
+    $this->load->model("model_peningkatan");
 	}
 
   function _temmplateTop(){
@@ -373,10 +374,74 @@ class Admin extends CI_Controller {
     $this->model_pengendalian->delete_datapengendalian();
   }
 
-  public function downloadPengendalian($id){
-		$data = $this->db->get_where('data_pengendalian',['id'=>$id])->row();
-		force_download('dokumen/pengendalian/'.$data->nama_file,NULL);
-	}
+  // public function downloadPengendalian($id){
+	// 	$data = $this->db->get_where('data_pengendalian',['id'=>$id])->row();
+	// 	force_download('dokumen/pengendalian/'.$data->nama_file,NULL);
+	// }
   // Bagian Pengendalian
+
+  // Bagian Peningkatan
+  public function peningkatan(){
+    $this->_temmplateTop();
+    $this->load->view('admin/peningkatan');
+    $this->_templateBottom();
+  }
+
+  public function getData_peningkatan(){
+		$list = $this->model_peningkatan->get_datatables();
+        $data = array();
+        $no = @$_POST['start'];
+        foreach ($list as $peningkatan) {
+            $no++;
+            $row = array();
+            $row[] = $no.".";
+            $row[] = $peningkatan->nama_pengaturan;
+            $row[] = $peningkatan->tanggal_penetapan_baru;
+            // add html for action
+            $row[] = '<div aria-label="Basic example" class="btn-groupss" role="group">
+            <button onclick="edit(`'.$peningkatan->id.'`,`'.$peningkatan->nama_pengaturan.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button>
+            <button onclick="review(`'.$peningkatan->id.'`,`'.$peningkatan->nama_pengaturan.'`)" class="btn btn-sm btn-info pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#reviewData">Review</button>
+            <button onclick="hapus(`'.$peningkatan->id.'`,`'.$peningkatan->nama_pengaturan.'`)" class="btn btn-sm btn-danger pd-x-25" type="button">Hapus</button>
+            </div>';
+            $data[] = $row;
+        }
+        $output = array(
+                    "draw" => @$_POST['draw'],
+                    "recordsTotal" => $this->model_peningkatan->count_all(),
+                    "recordsFiltered" => $this->model_peningkatan->count_filtered(),
+                    "data" => $data,
+                );
+        // output to json format
+        echo json_encode($output);
+  }
+
+  public function viewAddDataPeningkatan(){
+    $this->load->view('admin/view_formAddPeningkatan');
+  }
+
+  public function viewEditDataPeningkatan(){
+    $data["data"]=$this->model_peningkatan->view_dataPeningkatan();
+    $this->load->view('admin/view_formEditPeningkatan', $data);
+  }
+
+  public function viewReviewDataPeningkatan(){
+    $data["data"]=$this->model_peningkatan->view_dataPeningkatan();
+    $this->load->view('admin/view_formReviewPeningkatan', $data);
+  }
+
+  public function insert_dataPeningkatan(){
+    $this->model_peningkatan->insert_dataPeningkatan();
+    redirect("admin/peningkatan");
+  }
+
+  public function update_dataPeningkatan(){
+    $this->model_peningkatan->update_dataPeningkatan();
+    redirect("admin/peningkatan");
+  }
+
+  public function delete_dataPeningkatan(){
+    $this->model_peningkatan->delete_dataPeningkatan();
+  }
+  // Bagian Peningkatan
 
 }

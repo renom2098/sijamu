@@ -12,7 +12,7 @@
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Home</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Pengendalian
+                                    <li class="breadcrumb-item active">Peningkatan
                                     </li>
                                 </ol>
                             </div>
@@ -31,16 +31,16 @@
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-header border-bottom">
-                                                <h4 class="card-title">Pengendalian</h4>
-                                                    <button onclick="add()" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addData">Tambah Pengendalian</button>
+                                                <h4 class="card-title">Peningkatan</h4>
+                                                    <button onclick="add()" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addData">Tambah Peningkatan</button>
                                             </div>
                                             <div class="card-datatable">
                                                 <table class="dataTables_wrapper dt-bootstrap5 no-footer" id="table">
                                                     <thead>
                                                         <tr>
                                                             <th>No</th>
-                                                            <th>Nama Bidang Pengaturan Standar</th>
-                                                            <th>Tanggal Upload</th>
+                                                            <th>Nama Pengaturan</th>
+                                                            <th>Tanggal Penetapan Baru</th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </thead>
@@ -87,7 +87,7 @@
             "processing": false,
             "serverSide": false,
             "paging": true,
-            "ajax": "<?= site_url('admin/getData_pengendalian'); ?>"
+            "ajax": "<?= site_url('admin/getData_peningkatan'); ?>"
         })
     });
 </script>
@@ -95,11 +95,11 @@
 <script>
 function add()
 {
-	$.post("<?= site_url("admin/viewAddDataPengendalian"); ?>",{},function(data){
+	$.post("<?= site_url("admin/viewAddDataPeningkatan"); ?>",{},function(data){
 		$("#formAdd").html(data);
 		$("#modal_edit").attr(
             "url",
-            "<?= site_url("admin/insert_dataPengendalian"); ?>"
+            "<?= site_url("admin/insert_dataPeningkatan"); ?>"
         );
 		$("#defaultModalLabel").html("Tambah");
 		$("#addModal").modal();
@@ -108,11 +108,11 @@ function add()
 
 function edit(id)
 {
-	$.post("<?= site_url("admin/viewEditDataPengendalian"); ?>",{id:id},function(data){
+	$.post("<?= site_url("admin/viewEditDataPeningkatan"); ?>",{id:id},function(data){
 		$("#formEdit").html(data);
 		$("#modal_edit").attr(
             "url",
-            "<?= site_url("admin/update_dataPengendalian"); ?>"
+            "<?= site_url("admin/update_dataPeningkatan"); ?>"
         );
 		$("#defaultModalLabel").html("Edit");
 		$("#editModal").modal();
@@ -121,11 +121,11 @@ function edit(id)
 
 function review(id)
 {
-	$.post("<?= site_url("admin/viewReviewDataPengendalian"); ?>",{id:id},function(data){
+	$.post("<?= site_url("admin/viewReviewDataPeningkatan"); ?>",{id:id},function(data){
 		$("#formReview").html(data);
 		// $("#modal_edit").attr(
     //         "url",
-    //         "<?= site_url("admin/update_dataPengendalian"); ?>"
+    //         "<?= site_url("admin/update_dataPeningkatan"); ?>"
     //     );
 		$("#defaultModalLabel").html("Review");
 		$("#reviewModal").modal();
@@ -134,7 +134,7 @@ function review(id)
 
 // function download(id)
 // {
-//     var url = "<?= site_url("admin/downloadPengendalian/"); ?>" + id;
+//     var url = "<?= site_url("admin/downloadPeningkatan/"); ?>" + id;
 // 	$.post(url);
 // }
 
@@ -166,7 +166,7 @@ function hapus(id,akun)
 				}
 			});
 			
-			$.post("<?= site_url("admin/delete_dataPengendalian"); ?>",{id:id},function(){
+			$.post("<?= site_url("admin/delete_dataPeningkatan"); ?>",{id:id},function(){
 			reload_data();
 			});
 			
