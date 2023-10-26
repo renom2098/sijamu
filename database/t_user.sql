@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2023 at 08:52 AM
+-- Generation Time: Oct 26, 2023 at 09:18 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -40,6 +40,14 @@ CREATE TABLE `t_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `t_user`
+--
+
+INSERT INTO `t_user` (`id`, `username`, `password`, `level`, `fakultas`, `prodi`, `nama_lengkap`, `_ctimeupload`, `_ctimeupdate`) VALUES
+(3, 'tes edit', 'tes edit', 1, 1, 5, 'tes nama edit', '2023-10-26', '2023-10-26'),
+(4, 'GKM FIA', 'gkmfia', 2, 1, 6, 'Umar', '2023-10-26', '2023-10-26');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -57,7 +65,7 @@ ALTER TABLE `t_user`
 -- AUTO_INCREMENT for table `t_user`
 --
 ALTER TABLE `t_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
