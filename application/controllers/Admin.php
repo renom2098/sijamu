@@ -3,14 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
 
-  function __construct()
-	{
+  function __construct(){
 		parent::__construct();
 		$this->load->model("model_penetapan");
     $this->load->model("model_pelaksanaan");
     $this->load->model("model_evaluasi");
     $this->load->model("model_pengendalian");
     $this->load->model("model_peningkatan");
+    // user
+    $this->load->model("model_pengguna");
 	}
 
   function _temmplateTop(){
@@ -28,6 +29,83 @@ class Admin extends CI_Controller {
     $this->load->view('admin/home');
     $this->_templateBottom();
   }
+
+  // Kelola Pengguna
+  public function kelola_pengguna(){
+    $this->_temmplateTop();
+    $this->load->view('admin/kelola_pengguna/pengguna');
+    $this->_templateBottom();
+  }
+
+  public function getData_pengguna(){
+		$list = $this->model_pengguna->get_datatables();
+        $data = array();
+        $no = @$_POST['start'];
+        foreach ($list as $pengguna) {
+          // get data level, fakultas, prodi
+          $dataLevel = $this->model_pengguna->getLevel($pengguna->level);
+          $dataFakultas = $this->model_pengguna->getFakultas($pengguna->fakultas);  
+          $dataProdi = $this->model_pengguna->getProdi($pengguna->prodi);  
+
+          $no++;
+            $row = array();
+            $row[] = $no.".";
+            $row[] = $pengguna->nama_lengkap;
+            $row[] = $pengguna->username;
+            $row[] = $dataLevel->nama_level;
+            $row[] = $dataFakultas->nama_fakultas;
+            $row[] = $dataProdi->nama_prodi;
+            // add html for action
+            $row[] = '<div aria-label="Basic example" class="btn-groupss" role="group">
+            <button onclick="edit(`'.$pengguna->id.'`,`'.$pengguna->nama_lengkap.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button>
+            <button onclick="hapus(`'.$pengguna->id.'`,`'.$pengguna->nama_lengkap.'`)" class="btn btn-sm btn-danger pd-x-25" type="button">Hapus</button>
+            </div>';
+            $data[] = $row;
+        }
+        $output = array(
+                    "draw" => @$_POST['draw'],
+                    "recordsTotal" => $this->model_pengguna->count_all(),
+                    "recordsFiltered" => $this->model_pengguna->count_filtered(),
+                    "data" => $data,
+                );
+        // output to json format
+        echo json_encode($output);
+  }
+
+  public function viewAddDataPengguna(){
+    $data["level"]=$this->model_pengguna->getAllLevel();
+    $data["fakultas"]=$this->model_pengguna->getAllFakultas();
+    $data["prodi"]=$this->model_pengguna->getAllProdi();
+    $this->load->view('admin/kelola_pengguna/view_formAddPengguna', $data);
+  }
+
+  public function viewEditDataPengguna(){
+    $data["data_level"]=$this->model_pengguna->getAllLevel();
+    $data["data_fakultas"]=$this->model_pengguna->getAllFakultas();
+    $data["data_prodi"]=$this->model_pengguna->getAllProdi();
+    $data["data"]=$this->model_pengguna->view_dataPengguna();
+    $this->load->view('admin/kelola_pengguna/view_formEditPengguna', $data);
+  }
+
+  public function viewReviewDataPengguna(){
+    $data["data"]=$this->model_pengguna->view_dataPengguna();
+    $this->load->view('admin/kelola_pengguna/view_formReviewPengguna', $data);
+  }
+
+  public function insert_dataPengguna(){
+    $this->model_pengguna->insert_dataPengguna();
+    redirect("admin/kelola_pengguna/pengguna");
+  }
+
+  public function update_dataPengguna(){
+    $this->model_pengguna->update_dataPengguna();
+    redirect("admin/kelola_pengguna/pengguna");
+  }
+
+  public function delete_dataPengguna(){
+    $this->model_pengguna->delete_dataPengguna();
+  }
+  // Kelola Pengguna
 
   // Bagian Penetapan
   public function penetapan(){

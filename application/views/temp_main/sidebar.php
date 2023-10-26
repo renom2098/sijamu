@@ -65,7 +65,7 @@
                 <div class="divider divider-primary">
                     <div class="divider-text">User</div>
                 </div>
-                <li class="<?= $this->uri->segment(2) == 'kelola_user' ? 'active' : '' ?> nav-item"><a class="d-flex align-items-center" href="<?= base_url(); ?>admin/kelola_user"><i data-feather="user"></i><span class="menu-title text-truncate" data-i18n="Kelola User">Kelola User</span></a>
+                <li class="<?= $this->uri->segment(2) == 'kelola_pengguna' ? 'active' : '' ?> nav-item"><a class="d-flex align-items-center" href="<?= base_url(); ?>admin/kelola_pengguna"><i data-feather="user"></i><span class="menu-title text-truncate" data-i18n="Kelola Pengguna">Kelola Pengguna</span></a>
                 </li>
             </ul>
         </div>
