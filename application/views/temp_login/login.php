@@ -10,8 +10,8 @@
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
     <title>Login Page - Vuexy - Bootstrap HTML admin template</title>
-    <link rel="apple-touch-icon" href="<?= base_url(); ?>assets/app-assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url(); ?>assets/app-assets/images/ico/favicon.ico">
+    <link rel="apple-touch-icon" href="<?= base_url(); ?>assets/app-assets/images/ico/logo_unsub_baru.png">
+    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url(); ?>assets/app-assets/images/ico/logo_unsub_baru.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
@@ -60,18 +60,18 @@
                                     <h2 class="brand-text text-primary ms-1">SIJAMU</h2>
                                 </a>
 
-                                <form class="auth-login-form mt-2" action="index.html" method="POST">
+                                <form class="auth-login-form mt-2" action="<?= base_url(); ?>auth/process" method="POST">
                                     <div class="mb-1">
-                                        <label for="login-email" class="form-label">Username</label>
-                                        <input type="text" class="form-control" id="login-email" name="login-email" aria-describedby="login-email" tabindex="1" autofocus />
+                                        <label for="username" class="form-label">Username</label>
+                                        <input type="text" class="form-control" id="username" name="username" aria-describedby="username" tabindex="1" autofocus />
                                     </div>
 
                                     <div class="mb-1">
                                         <div class="d-flex justify-content-between">
-                                            <label class="form-label" for="login-password">Password</label>
+                                            <label class="form-label" for="password">Password</label>
                                         </div>
                                         <div class="input-group input-group-merge form-password-toggle">
-                                            <input type="password" class="form-control form-control-merge" id="login-password" name="login-password" tabindex="2" aria-describedby="login-password" />
+                                            <input type="password" class="form-control form-control-merge" id="password" name="password" tabindex="2" aria-describedby="password" />
                                             <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
                                         </div>
                                     </div>
@@ -81,7 +81,7 @@
                                             <label class="form-check-label" for="remember-me"> Remember Me </label>
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary w-100" tabindex="4">Login</button>
+                                    <button type="submit" name="login" class="btn btn-primary w-100" tabindex="4">Login</button>
                                 </form>
 
                             </div>
