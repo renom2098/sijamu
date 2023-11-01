@@ -24,26 +24,73 @@
             <div class="content-body">
                 <!-- Kick start -->
                 <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Kick start your next project 🚀</h4>
-                    </div>
                     <div class="card-body">
-                        <div class="card-text">
-                            <p>
-                                Getting start with your project custom requirements using a ready template which is quite difficult and time
-                                taking process, Vuexy Admin provides useful features to kick start your project development with no efforts !
-                            </p>
-                            <ul>
-                                <li>
-                                    Vuexy Admin provides you getting start pages with different layouts, use the layout as per your custom
-                                    requirements and just change the branding, menu &amp; content.
-                                </li>
-                                <li>
-                                    Every components in Vuexy Admin are decoupled, it means use use only components you actually need! Remove
-                                    unnecessary and extra code easily just by excluding the path to specific SCSS, JS file.
-                                </li>
-                            </ul>
-                        </div>
+                        <section id="card-style-variation">
+                            <!-- Solid -->
+                            <div class="row">
+                                
+                                <div class="col-md-6 col-xl-4">
+                                    <a href="<?= base_url('admin'); ?>">
+                                    <div class="card bg-primary text-white">
+                                        <div class="card-body">
+                                            <h4 class="card-title text-white text-center">Home</h4>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-6 col-xl-4">
+                                    <a href="<?= base_url('admin/penetapan'); ?>">
+                                    <div class="card bg-secondary text-white">
+                                        <div class="card-body">
+                                            <h4 class="card-title text-white text-center">Penetapan</h4>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-6 col-xl-4">
+                                    <a href="<?= base_url('admin/pelaksanaan'); ?>">
+                                    <div class="card bg-success text-white">
+                                        <div class="card-body">
+                                            <h4 class="card-title text-white text-center">Pelaksanaan</h4>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-6 col-xl-4">
+                                    <a href="<?= base_url('admin/evaluasi'); ?>">
+                                    <div class="card bg-danger text-white">
+                                        <div class="card-body">
+                                            <h4 class="card-title text-white text-center">Evaluasi</h4>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-6 col-xl-4">
+                                    <a href="<?= base_url('admin/pengendalian'); ?>">
+                                    <div class="card bg-warning text-white">
+                                        <div class="card-body">
+                                            <h4 class="card-title text-white text-center">Pengendalian</h4>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-6 col-xl-4">
+                                    <a href="<?= base_url('admin/peningkatan'); ?>">
+                                    <div class="card bg-info text-white">
+                                        <div class="card-body">
+                                            <h4 class="card-title text-white text-center">Peningkatan</h4>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </section>
                     </div>
                 </div>
                 <!--/ Kick start -->
