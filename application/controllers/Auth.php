@@ -25,7 +25,18 @@ class Auth extends CI_Controller {
           'level' => $row->level
         );
         $this->session->set_userdata($params);
-        redirect("admin");
+        $lvl=$this->session->userdata('level');
+        if ($lvl == 1) { // ADMIN
+                redirect("admin");
+            }
+            elseif($lvl == 2){ // Auditor
+                redirect("auditor");
+            } else {
+              echo "<script>
+              alert('Sorry gagal login, username atau password salah!');
+              window.location='".site_url('auth')."'
+              </script>";
+            }
       } else {
         echo "<script>
         alert('Sorry gagal login, username atau password salah!');
