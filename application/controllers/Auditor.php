@@ -11,6 +11,7 @@ class Auditor extends CI_Controller {
     $this->load->model("model_evaluasi");
     $this->load->model("model_pengendalian");
     $this->load->model("model_peningkatan");
+    // ambil session untuk evaluasi
 	}
 
   function _temmplateTop(){
