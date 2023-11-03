@@ -308,16 +308,23 @@ class Admin extends CI_Controller {
         $data = array();
         $no = @$_POST['start'];
         foreach ($list as $evaluasi) {
+          
+            $dataProdi = $this->model_pengguna->getProdi($evaluasi->prodi);
+            $dataFakultas = $this->model_pengguna->getFakultas($evaluasi->fakultas);  
+            
             $no++;
             $row = array();
             $row[] = $no.".";
             $row[] = $evaluasi->nama_dok_evaluasi;
             $row[] = $evaluasi->jenis_dok_evaluasi;
+            $row[] = $dataProdi->nama_prodi;
+            $row[] = $dataFakultas->nama_fakultas;
             $row[] = $evaluasi->tanggal_ditetapkan;
             // add html for action
             $row[] = '<div aria-label="Basic example" class="btn-groupss" role="group">
             <button onclick="edit(`'.$evaluasi->id.'`,`'.$evaluasi->nama_dok_evaluasi.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button> 
             <button onclick="hapus(`'.$evaluasi->id.'`,`'.$evaluasi->nama_dok_evaluasi.'`)" class="btn btn-sm btn-danger pd-x-25" type="button">Hapus</button>
+            <button onclick="review(`'.$evaluasi->id.'`,`'.$evaluasi->nama_dok_evaluasi.'`)" class="btn btn-sm btn-info pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#reviewData">Review</button>
             <button onclick="download(`'.$evaluasi->id.'`)" class="btn btn-sm btn-secondary pd-x-25" type="button">Download</button>
             </div>';
             $data[] = $row;
@@ -333,10 +340,14 @@ class Admin extends CI_Controller {
   }
 
   public function viewAddDataEvaluasi(){
-    $this->load->view('admin/view_formAddevaluasi');
+    $data["fakultas"]=$this->model_pengguna->getAllFakultas();
+    $data["prodi"]=$this->model_pengguna->getAllProdi();
+    $this->load->view('admin/view_formAddevaluasi', $data);
   }
 
   public function viewEditDataEvaluasi(){
+    $data["data_fakultas"]=$this->model_pengguna->getAllFakultas();
+    $data["data_prodi"]=$this->model_pengguna->getAllProdi();
     $data["data"]=$this->model_evaluasi->view_dataEvaluasi();
     $this->load->view('admin/view_formEditevaluasi', $data);
   }
@@ -350,7 +361,9 @@ class Admin extends CI_Controller {
 		$this->load->library('upload', $config);
 		if ( ! $this->upload->do_upload('nama_file'))
 		{
-				echo "eror!"; // lebih diindahkan
+				$nama_file = null;
+			  $this->model_evaluasi->insert_dataEvaluasi($nama_file);
+        redirect("admin/evaluasi");
 		}
 		else
 		{
@@ -369,7 +382,9 @@ class Admin extends CI_Controller {
 		$this->load->library('upload', $config);
 		if ( ! $this->upload->do_upload('nama_file'))
 		{
-				echo "eror!"; // lebih diindahkan
+				$nama_file = null;
+			  $this->model_evaluasi->insert_dataEvaluasi($nama_file);
+        redirect("admin/evaluasi");
 		}
 		else
 		{
@@ -382,6 +397,13 @@ class Admin extends CI_Controller {
 
   public function delete_dataEvaluasi(){
       $this->model_evaluasi->delete_dataevaluasi();
+  }
+
+  public function viewReviewDataEvaluasi(){
+    $data["data_fakultas"]=$this->model_pengguna->getAllFakultas();
+    $data["data_prodi"]=$this->model_pengguna->getAllProdi();
+    $data["data"]=$this->model_evaluasi->view_dataEvaluasi();
+    $this->load->view('admin/view_formReviewEvaluasi', $data);
   }
 
   public function downloadEvaluasi($id){

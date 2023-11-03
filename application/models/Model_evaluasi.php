@@ -7,8 +7,8 @@ class Model_evaluasi extends CI_Model  {
     }
 
   // start datatables
-  var $column_order = array(null, 'nama_dok_evaluasi', 'jenis_dok_evaluasi', 'tanggal_ditetapkan', 'nama_file'); //set column field database for datatable orderable
-  var $column_search = array('nama_dok_evaluasi', 'jenis_dok_evaluasi', 'tanggal_ditetapkan', 'nama_file'); //set column field database for datatable searchable
+  var $column_order = array(null, 'nama_dok_evaluasi', 'jenis_dok_evaluasi', 'prodi', 'fakultas', 'tanggal_ditetapkan', 'nama_file'); //set column field database for datatable orderable
+  var $column_search = array('nama_dok_evaluasi', 'jenis_dok_evaluasi', 'prodi', 'fakultas', 'tanggal_ditetapkan', 'nama_file'); //set column field database for datatable searchable
   var $order = array('id' => 'asc'); //default order 
  
   private function _get_datatables_query() {
