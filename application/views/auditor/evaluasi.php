@@ -41,6 +41,8 @@
                                                             <th>No</th>
                                                             <th>Nama File</th>
                                                             <th>Jenis File</th>
+                                                            <th>Prodi</th>
+                                                            <th>Fakultas</th>
                                                             <th>Tanggal Ditetapkan</th>
                                                             <th>Action</th>
                                                         </tr>
@@ -72,6 +74,13 @@
     <div class="modal fade text-start" id="editData" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div id="formEdit"></div>
+        </div>
+    </div>
+
+    <!-- Modal Review User -->
+    <div class="modal fade text-start" id="reviewData" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true" data-bs-focus="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div id="formReview"></div>
         </div>
     </div>
 
@@ -110,6 +119,19 @@ function edit(id)
         );
 		$("#defaultModalLabel").html("Edit");
 		$("#editModal").modal();
+	});
+}
+
+function review(id)
+{
+	$.post("<?= site_url("auditor/viewReviewDataEvaluasi"); ?>",{id:id},function(data){
+		$("#formReview").html(data);
+		// $("#modal_edit").attr(
+    //         "url",
+    //         "<?= site_url("auditor/update_dataEvaluasi"); ?>"
+    //     );
+		$("#defaultModalLabel").html("Review");
+		$("#reviewModal").modal();
 	});
 }
 

@@ -19,6 +19,48 @@
                         <input type="text" id="jenis-evaluasi" class="form-control" name="f[jenis_dok_evaluasi]" placeholder="Jenis Evaluasi">
                     </div>
                 </div>
+
+                <div class="col-12">
+                  <div class="mb-1">
+                    <label for="horizontal-fakultas-input" class="col-sm-3 col-form-label">Fakultas</label>
+                    <?php
+                        $options = array('' => '===Pilih Fakultas===',);
+                        foreach ($fakultas->result() as $fk) {
+                            $options[$fk->id] = $fk->nama_fakultas;
+                        }
+
+                        $attr = array('class' => 'form-select', 'id' => 'horizontal-fakultas-input', 'required' => 'required');
+                        echo form_dropdown('f[fakultas]', $options, $fakultas, $attr);
+                        unset($options);
+                        unset($attr);
+                    ?>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="mb-1">
+                    <label for="horizontal-prodi-input" class="col-sm-3 col-form-label">Prodi</label>
+                    <?php
+                        $options = array('' => '===Pilih Prodi===',);
+                        foreach ($prodi->result() as $pr) {
+                            $options[$pr->id] = $pr->nama_prodi;
+                        }
+
+                        $attr = array('class' => 'form-select', 'id' => 'horizontal-prodi-input', 'required' => 'required');
+                        echo form_dropdown('f[prodi]', $options, $prodi, $attr);
+                        unset($options);
+                        unset($attr);
+                    ?>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="mb-1">
+                        <label class="form-label" for="tautan-excel">Tautan Excel</label>
+                        <input type="text" id="tautan-excel" class="form-control" name="f[tautan_excel]" placeholder="Tautan Excel">
+                    </div>
+                </div>
+
                 <div class="col-12">
                     <label class="form-label" for="tanggal_ditetapkan">Tanggal Ditetapkan</label>
                     <input type="date" id="tanggal_ditetapkan" class="form-control flatpickr-basic flatpickr-input active" name="f[tanggal_ditetapkan]" placeholder="YYYY-MM-DD" readonly="readonly">
