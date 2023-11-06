@@ -22,6 +22,12 @@
                 <div class="col-12">
                     <label class="form-label" for="tanggal_ditetapkan">Tanggal Ditetapkan</label>
                     <input type="date" id="tanggal_ditetapkan" class="form-control flatpickr-basic flatpickr-input active" name="f[tanggal_ditetapkan]" placeholder="YYYY-MM-DD" readonly="readonly">
+                </div>
+                <div class="col-12">
+                    <div class="mb-1">
+                        <label class="form-label" for="tautan">Tautan File</label>
+                        <input type="text" id="tautan" class="form-control" name="f[tautan]" placeholder="Link Tautan">
+                    </div>
                 </div> 
                 <div class="col-12">
                     <div class="mb-1">

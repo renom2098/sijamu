@@ -4,6 +4,7 @@ $nama_peraturan = $data->nama_peraturan ?? '';
 $jenis_peraturan = $data->jenis_peraturan ?? '';
 $tanggal_ditetapkan = $data->tanggal_ditetapkan ?? '';
 $nama_file = $data->nama_file ?? '';
+$tautan = $data->tautan ?? '';
 ?>
 <div class="modal-content">
     <div class="modal-header">
@@ -30,7 +31,13 @@ $nama_file = $data->nama_file ?? '';
                 <div class="col-12">
                     <label class="form-label" for="tanggal_ditetapkan">Tanggal Ditetapkan</label>
                     <input type="text" id="tanggal_ditetapkan" class="form-control flatpickr-basic flatpickr-input active" name="f[tanggal_ditetapkan]" placeholder="<?= $tanggal_ditetapkan; ?>" readonly="readonly" value="<?= $tanggal_ditetapkan; ?>" >
-                </div> 
+                </div>
+                <div class="col-12">
+                    <div class="mb-1">
+                        <label class="form-label" for="tautan">Tutan</label>
+                        <input type="text" id="tautan" class="form-control" name="f[tautan]" placeholder="Tutan" value="<?= $tautan; ?>">
+                    </div>
+                </div>
                 <div class="col-12">
                     <div class="mb-1">
                         <label class="form-label" for="nama_file">Nama File</label>

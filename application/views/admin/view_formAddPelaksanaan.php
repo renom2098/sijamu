@@ -15,14 +15,20 @@
                 </div>
                 <div class="col-12">
                     <div class="mb-1">
-                        <label class="form-label" for="jenis-pelaksanaan">Jenis elaksanaan</label>
+                        <label class="form-label" for="jenis-pelaksanaan">Jenis Pelaksanaan</label>
                         <input type="text" id="jenis-pelaksanaan" class="form-control" name="f[jenis_dok_pelaksanaan]" placeholder="Jenis Pelaksanaan">
                     </div>
                 </div>
                 <div class="col-12">
                     <label class="form-label" for="tanggal_ditetapkan">Tanggal Ditetapkan</label>
                     <input type="date" id="tanggal_ditetapkan" class="form-control flatpickr-basic flatpickr-input active" name="f[tanggal_ditetapkan]" placeholder="YYYY-MM-DD" readonly="readonly">
-                </div> 
+                </div>
+                <div class="col-12">
+                    <div class="mb-1">
+                        <label class="form-label" for="tautan">Tautan</label>
+                        <input type="text" id="tautan" class="form-control" name="f[tautan]" placeholder="Tautan">
+                    </div>
+                </div>
                 <div class="col-12">
                     <div class="mb-1">
                         <label class="form-label" for="nama_file">Nama File</label>

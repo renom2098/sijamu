@@ -128,7 +128,8 @@ class Admin extends CI_Controller {
             $row[] = $penetapan->tanggal_ditetapkan;
             // add html for action
             $row[] = '<div aria-label="Basic example" class="btn-groupss" role="group">
-            <button onclick="edit(`'.$penetapan->id.'`,`'.$penetapan->nama_peraturan.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button> 
+            <button onclick="edit(`'.$penetapan->id.'`,`'.$penetapan->nama_peraturan.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button>
+            <button onclick="review(`'.$penetapan->id.'`,`'.$penetapan->nama_peraturan.'`)" class="btn btn-sm btn-info pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#reviewData">Review</button>
             <button onclick="hapus(`'.$penetapan->id.'`,`'.$penetapan->nama_peraturan.'`)" class="btn btn-sm btn-danger pd-x-25" type="button">Hapus</button>
             <button onclick="download(`'.$penetapan->id.'`)" class="btn btn-sm btn-secondary pd-x-25" type="button">Download</button>
             </div>';
@@ -162,7 +163,9 @@ class Admin extends CI_Controller {
 		$this->load->library('upload', $config);
 		if ( ! $this->upload->do_upload('nama_file'))
 		{
-				echo "eror!"; // lebih diindahkan
+			$nama_file = null;
+			$this->model_penetapan->insert_dataPenetapan($nama_file);
+      redirect("admin/penetapan");
 		}
 		else
 		{
@@ -181,7 +184,9 @@ class Admin extends CI_Controller {
 		$this->load->library('upload', $config);
 		if ( ! $this->upload->do_upload('nama_file'))
 		{
-				echo "eror!"; // lebih diindahkan
+			$nama_file = null;
+			$this->model_penetapan->insert_dataPenetapan($nama_file);
+      redirect("admin/penetapan");
 		}
 		else
 		{
@@ -200,6 +205,11 @@ class Admin extends CI_Controller {
 		$data = $this->db->get_where('data_penetapan',['id'=>$id])->row();
 		force_download('dokumen/penetapan/'.$data->nama_file,NULL);
 	}
+
+  public function viewReviewDataPenetapan(){
+    $data["data"]=$this->model_penetapan->view_dataPenetapan();
+    $this->load->view('admin/view_formReviewPenetapan', $data);
+  }
   // Bagian Penetapan
 
   // Bagian Pelaksanaan
@@ -222,7 +232,8 @@ class Admin extends CI_Controller {
             $row[] = $pelaksanaan->tanggal_ditetapkan;
             // add html for action
             $row[] = '<div aria-label="Basic example" class="btn-groupss" role="group">
-            <button onclick="edit(`'.$pelaksanaan->id.'`,`'.$pelaksanaan->nama_dok_pelaksanaan.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button> 
+            <button onclick="edit(`'.$pelaksanaan->id.'`,`'.$pelaksanaan->nama_dok_pelaksanaan.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button>
+            <button onclick="review(`'.$pelaksanaan->id.'`,`'.$pelaksanaan->nama_dok_pelaksanaan.'`)" class="btn btn-sm btn-info pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#reviewData">Review</button>
             <button onclick="hapus(`'.$pelaksanaan->id.'`,`'.$pelaksanaan->nama_dok_pelaksanaan.'`)" class="btn btn-sm btn-danger pd-x-25" type="button">Hapus</button>
             <button onclick="download(`'.$pelaksanaan->id.'`)" class="btn btn-sm btn-secondary pd-x-25" type="button">Download</button>
             </div>';
@@ -256,7 +267,9 @@ class Admin extends CI_Controller {
 		$this->load->library('upload', $config);
 		if ( ! $this->upload->do_upload('nama_file'))
 		{
-				echo "eror!"; // lebih diindahkan
+      $nama_file = null;
+      $this->model_pelaksanaan->update_dataPelaksanaan($nama_file);
+      redirect("admin/pelaksanaan");
 		}
 		else
 		{
@@ -275,7 +288,9 @@ class Admin extends CI_Controller {
 		$this->load->library('upload', $config);
 		if ( ! $this->upload->do_upload('nama_file'))
 		{
-				echo "eror!"; // lebih diindahkan
+      $nama_file = null;
+      $this->model_pelaksanaan->update_dataPelaksanaan($nama_file);
+      redirect("admin/pelaksanaan");
 		}
 		else
 		{
@@ -294,6 +309,11 @@ class Admin extends CI_Controller {
 		$data = $this->db->get_where('data_pelaksanaan',['id'=>$id])->row();
 		force_download('dokumen/pelaksanaan/'.$data->nama_file,NULL);
 	}
+
+  public function viewReviewDataPelaksannaan(){
+    $data["data"]=$this->model_pelaksanaan->view_dataPelaksanaan();
+    $this->load->view('admin/view_formReviewPelaksanaan', $data);
+  }
   // Bagian Pelaksanaan
 
   // Bagian Evaluasi

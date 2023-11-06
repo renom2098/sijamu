@@ -75,6 +75,13 @@
         </div>
     </div>
 
+    <!-- Modal Review User -->
+    <div class="modal fade text-start" id="reviewData" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true" data-bs-focus="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div id="formReview"></div>
+        </div>
+    </div>
+
 <script>
     $(document).ready(function(){
         $('#table').DataTable({
@@ -110,6 +117,19 @@ function edit(id)
         );
 		$("#defaultModalLabel").html("Edit");
 		$("#editModal").modal();
+	});
+}
+
+function review(id)
+{
+	$.post("<?= site_url("admin/viewReviewDataPelaksanaan"); ?>",{id:id},function(data){
+		$("#formReview").html(data);
+		// $("#modal_edit").attr(
+    //         "url",
+    //         "<?= site_url("admin/update_dataPelaksanaan"); ?>"
+    //     );
+		$("#defaultModalLabel").html("Review");
+		$("#reviewModal").modal();
 	});
 }
 
