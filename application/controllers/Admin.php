@@ -342,7 +342,7 @@ class Admin extends CI_Controller {
   public function viewAddDataEvaluasi(){
     $data["fakultas"]=$this->model_pengguna->getAllFakultas();
     $data["prodi"]=$this->model_pengguna->getAllProdi();
-    $this->load->view('admin/view_formAddevaluasi', $data);
+    $this->load->view('admin/view_formAddEvaluasi', $data);
   }
 
   public function viewEditDataEvaluasi(){
