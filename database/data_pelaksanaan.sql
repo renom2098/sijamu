@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2023 at 09:58 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 7.4.33
+-- Generation Time: Nov 06, 2023 at 05:58 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,17 +32,11 @@ CREATE TABLE `data_pelaksanaan` (
   `nama_dok_pelaksanaan` varchar(128) DEFAULT NULL,
   `jenis_dok_pelaksanaan` varchar(128) DEFAULT NULL,
   `tanggal_ditetapkan` date DEFAULT NULL,
+  `tautan` varchar(256) DEFAULT NULL,
   `nama_file` varchar(128) DEFAULT NULL,
   `_ctimeupload` date DEFAULT NULL,
   `_ctimeupdate` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `data_pelaksanaan`
---
-
-INSERT INTO `data_pelaksanaan` (`id`, `nama_dok_pelaksanaan`, `jenis_dok_pelaksanaan`, `tanggal_ditetapkan`, `nama_file`, `_ctimeupload`, `_ctimeupdate`) VALUES
-(1, 'nama pelaksanaan 2', 'jenis pelaksanaan 2', '2023-10-01', 'attachment.pdf', '2023-10-21', '2023-10-21');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
