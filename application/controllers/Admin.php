@@ -310,7 +310,7 @@ class Admin extends CI_Controller {
 		force_download('dokumen/pelaksanaan/'.$data->nama_file,NULL);
 	}
 
-  public function viewReviewDataPelaksannaan(){
+  public function viewReviewDataPelaksanaan(){
     $data["data"]=$this->model_pelaksanaan->view_dataPelaksanaan();
     $this->load->view('admin/view_formReviewPelaksanaan', $data);
   }

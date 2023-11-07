@@ -4,6 +4,7 @@ $nama_dok_pelaksanaan = $data->nama_dok_pelaksanaan ?? '';
 $jenis_dok_pelaksanaan = $data->jenis_dok_pelaksanaan ?? '';
 $tanggal_ditetapkan = $data->tanggal_ditetapkan ?? '';
 $nama_file = $data->nama_file ?? '';
+$tautan = $data->tautan ?? '';
 ?>
 <div class="modal-content">
     <div class="modal-header">
@@ -25,6 +26,12 @@ $nama_file = $data->nama_file ?? '';
                     <div class="mb-1">
                         <label class="form-label" for="jenis-pelaksanaan">Jenis Pelaksanaan</label>
                         <input type="text" id="jenis-pelaksanaan" class="form-control" name="f[jenis_dok_pelaksanaan]" placeholder="Jenis Pelaksanaan" value="<?= $jenis_dok_pelaksanaan; ?>">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="mb-1">
+                        <label class="form-label" for="tautan">Tautan</label>
+                        <input type="text" id="tautan" class="form-control" name="f[tautan]" placeholder="Tautan" value="<?= $tautan; ?>">
                     </div>
                 </div>
                 <div class="col-12">
