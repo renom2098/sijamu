@@ -185,7 +185,7 @@ class Admin extends CI_Controller {
 		if ( ! $this->upload->do_upload('nama_file'))
 		{
 			$nama_file = null;
-			$this->model_penetapan->insert_dataPenetapan($nama_file);
+			$this->model_penetapan->update_dataPenetapan($nama_file);
       redirect("admin/penetapan");
 		}
 		else
@@ -268,7 +268,7 @@ class Admin extends CI_Controller {
 		if ( ! $this->upload->do_upload('nama_file'))
 		{
       $nama_file = null;
-      $this->model_pelaksanaan->update_dataPelaksanaan($nama_file);
+      $this->model_pelaksanaan->insert_dataPelaksanaan($nama_file);
       redirect("admin/pelaksanaan");
 		}
 		else
@@ -369,7 +369,7 @@ class Admin extends CI_Controller {
     $data["data_fakultas"]=$this->model_pengguna->getAllFakultas();
     $data["data_prodi"]=$this->model_pengguna->getAllProdi();
     $data["data"]=$this->model_evaluasi->view_dataEvaluasi();
-    $this->load->view('admin/view_formEditevaluasi', $data);
+    $this->load->view('admin/view_formEditEvaluasi', $data);
   }
 
   public function insert_dataEvaluasi(){
@@ -403,7 +403,7 @@ class Admin extends CI_Controller {
 		if ( ! $this->upload->do_upload('nama_file'))
 		{
 				$nama_file = null;
-			  $this->model_evaluasi->insert_dataEvaluasi($nama_file);
+			  $this->model_evaluasi->update_dataEvaluasi($nama_file);
         redirect("admin/evaluasi");
 		}
 		else
