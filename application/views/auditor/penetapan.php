@@ -74,6 +74,13 @@
         </div>
     </div>
 
+    <!-- Modal Review User -->
+    <div class="modal fade text-start" id="reviewData" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true" data-bs-focus="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div id="formReview"></div>
+        </div>
+    </div>
+
 <script>
     $(document).ready(function(){
         $('#table').DataTable({
@@ -111,6 +118,19 @@
 // 		$("#editModal").modal();
 // 	});
 // }
+
+function review(id)
+{
+	$.post("<?= site_url("auditor/viewReviewDataPenetapan"); ?>",{id:id},function(data){
+		$("#formReview").html(data);
+		// $("#modal_edit").attr(
+    //         "url",
+    //         "<?= site_url("auditor/update_dataPenetapan"); ?>"
+    //     );
+		$("#defaultModalLabel").html("Review");
+		$("#reviewModal").modal();
+	});
+}
 
 function download(id)
 {
