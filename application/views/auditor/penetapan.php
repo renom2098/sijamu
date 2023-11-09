@@ -31,7 +31,14 @@
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-header border-bottom">
-                                                <h4 class="card-title">Penetapan</h4>
+                                                <h4 class="card-title">Penetapan
+                                                    <br>
+                                                    <small>Pengaturan Tentang Kebijakan SPMI</small>
+                                                    <br>
+                                                    <small>Standar Yang Ditetapkan Institusi</small>
+                                                    <br>
+                                                    <small>Standar Lain Yang Ditetapkan</small>
+                                                </h4>
                                             </div>
                                             <div class="card-datatable">
                                                 <table class="dataTables_wrapper dt-bootstrap5 no-footer" id="table">

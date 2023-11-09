@@ -31,7 +31,10 @@
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-header border-bottom">
-                                                <h4 class="card-title">Evaluasi</h4>
+                                                <h4 class="card-title">Evaluasi
+                                                    <br>
+                                                    <small>Bentuk Evaluasi Yang Dijalankan & Melalui Mekanisme</small>
+                                                </h4>
                                                     <button onclick="add()" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addData">Tambah Dokumen Evaluasi</button>
                                             </div>
                                             <div class="card-datatable">

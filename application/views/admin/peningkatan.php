@@ -31,7 +31,10 @@
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-header border-bottom">
-                                                <h4 class="card-title">Peningkatan</h4>
+                                                <h4 class="card-title">Peningkatan
+                                                    <br>
+                                                    <small>Peningkatan standar dalam SPMI Institusi</small>
+                                                </h4>
                                                     <button onclick="add()" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addData">Tambah Peningkatan</button>
                                             </div>
                                             <div class="card-datatable">

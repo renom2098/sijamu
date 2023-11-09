@@ -31,7 +31,10 @@
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-header border-bottom">
-                                                <h4 class="card-title">Pengendalian</h4>
+                                                <h4 class="card-title">Pengendalian
+                                                    <br>
+                                                    <small>Pengendalian standar dalam SPMI Institusi</small>
+                                                </h4>
                                             </div>
                                             <div class="card-datatable">
                                                 <table class="dataTables_wrapper dt-bootstrap5 no-footer" id="table">

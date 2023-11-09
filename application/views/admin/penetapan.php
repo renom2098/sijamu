@@ -31,7 +31,14 @@
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-header border-bottom">
-                                                <h4 class="card-title">Penetapan</h4>
+                                                <h4 class="card-title">Penetapan
+                                                    <br>
+                                                    <small>Pengaturan Tentang Kebijakan SPMI</small>
+                                                    <br>
+                                                    <small>Standar Yang Ditetapkan Institusi</small>
+                                                    <br>
+                                                    <small>Standar Lain Yang Ditetapkan</small>
+                                                </h4>
                                                     <button onclick="add()" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addData">Tambah Penetapan</button>
                                             </div>
                                             <div class="card-datatable">

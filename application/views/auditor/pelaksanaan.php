@@ -31,7 +31,10 @@
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-header border-bottom">
-                                                <h4 class="card-title">Pelaksanaan</h4>
+                                                <h4 class="card-title">Pelaksanaan
+                                                    <br>
+                                                    <small>Standar Nasional Pendidikan Tinggi</small>
+                                                </h4>
                                             </div>
                                             <div class="card-datatable">
                                                 <table class="dataTables_wrapper dt-bootstrap5 no-footer" id="table">
