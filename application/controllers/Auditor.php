@@ -320,7 +320,6 @@ class Auditor extends CI_Controller {
     $data["data"]=$this->model_peningkatan->view_dataPeningkatan();
     $this->load->view('auditor/view_formReviewPeningkatan', $data);
   }
-
   // Bagian Peningkatan
 
 }
