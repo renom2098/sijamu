@@ -12,8 +12,16 @@ class Model_evaluasi extends CI_Model  {
   var $order = array('id' => 'asc'); //default order 
  
   private function _get_datatables_query() {
-      $this->db->select('*');
-      $this->db->from('data_evaluasi');
+        if ($this->fungsi->user_login()->level == 1){
+            $this->db->select('*');
+            $this->db->from('data_evaluasi');
+        } else {
+            $id_prodi = $this->fungsi->user_login()->prodi;  
+            $this->db->select('*');
+            $this->db->from('data_evaluasi');
+            $this->db->where('id_prodi',$id_prodi);
+        }
+
       $i = 0;
       foreach ($this->column_search as $evaluasi) { // loop column 
           if(@$_POST['search']['value']) { // if datatable send POST for search
@@ -59,11 +67,17 @@ class Model_evaluasi extends CI_Model  {
     function insert_dataEvaluasi($nama_file){
         $form = $this->input->post("f");
         $timenow = date("Y-m-d");
+        $id_level = $this->fungsi->user_login()->level;
+        $id_fakultas = $this->fungsi->user_login()->fakultas;
+        $id_prodi = $this->fungsi->user_login()->prodi;
         
         $this->db->set($form);
         $this->db->set("nama_file", $nama_file);
         $this->db->set("_ctimeupload", $timenow);
         $this->db->set("_ctimeupdate", $timenow);
+        $this->db->set("id_level", $id_level);
+        $this->db->set("id_fakultas", $id_fakultas);
+        $this->db->set("id_prodi", $id_prodi);
         return $this->db->insert("data_evaluasi");
     }
 

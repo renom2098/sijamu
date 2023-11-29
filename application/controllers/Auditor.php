@@ -210,7 +210,7 @@ class Auditor extends CI_Controller {
 		if ( ! $this->upload->do_upload('nama_file'))
 		{
 				$nama_file = null;
-			  $this->model_evaluasi->insert_dataEvaluasi($nama_file);
+			  $this->model_evaluasi->update_dataEvaluasi($nama_file);
         redirect("auditor/evaluasi");
 		}
 		else
