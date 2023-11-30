@@ -7,7 +7,7 @@
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-start mb-0">Home | Auditor</h2>
+                            <h2 class="content-header-title float-start mb-0">Home | Audite</h2>
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Home</a>
@@ -90,7 +90,7 @@
             "processing": false,
             "serverSide": false,
             "paging": true,
-            "ajax": "<?= site_url('auditor/getData_peningkatan'); ?>"
+            "ajax": "<?= site_url('audite/getData_peningkatan'); ?>"
         })
     });
 </script>
@@ -98,11 +98,11 @@
 <script>
 function add()
 {
-	$.post("<?= site_url("auditor/viewAddDataPeningkatan"); ?>",{},function(data){
+	$.post("<?= site_url("audite/viewAddDataPeningkatan"); ?>",{},function(data){
 		$("#formAdd").html(data);
 		$("#modal_edit").attr(
             "url",
-            "<?= site_url("auditor/insert_dataPeningkatan"); ?>"
+            "<?= site_url("audite/insert_dataPeningkatan"); ?>"
         );
 		$("#defaultModalLabel").html("Tambah");
 		$("#addModal").modal();
@@ -111,11 +111,11 @@ function add()
 
 function edit(id)
 {
-	$.post("<?= site_url("auditor/viewEditDataPeningkatan"); ?>",{id:id},function(data){
+	$.post("<?= site_url("audite/viewEditDataPeningkatan"); ?>",{id:id},function(data){
 		$("#formEdit").html(data);
 		$("#modal_edit").attr(
             "url",
-            "<?= site_url("auditor/update_dataPeningkatan"); ?>"
+            "<?= site_url("audite/update_dataPeningkatan"); ?>"
         );
 		$("#defaultModalLabel").html("Edit");
 		$("#editModal").modal();
@@ -124,11 +124,11 @@ function edit(id)
 
 function review(id)
 {
-	$.post("<?= site_url("auditor/viewReviewDataPeningkatan"); ?>",{id:id},function(data){
+	$.post("<?= site_url("audite/viewReviewDataPeningkatan"); ?>",{id:id},function(data){
 		$("#formReview").html(data);
 		// $("#modal_edit").attr(
     //         "url",
-    //         "<?= site_url("auditor/update_dataPeningkatan"); ?>"
+    //         "<?= site_url("audite/update_dataPeningkatan"); ?>"
     //     );
 		$("#defaultModalLabel").html("Review");
 		$("#reviewModal").modal();
@@ -137,7 +137,7 @@ function review(id)
 
 function download(id)
 {
-    var url = "<?= site_url("auditor/downloadPeningkatan/"); ?>" + id;
+    var url = "<?= site_url("audite/downloadPeningkatan/"); ?>" + id;
 	$.post(url);
 }
 
@@ -169,7 +169,7 @@ function hapus(id,akun)
 				}
 			});
 			
-			$.post("<?= site_url("auditor/delete_dataPeningkatan"); ?>",{id:id},function(){
+			$.post("<?= site_url("audite/delete_dataPeningkatan"); ?>",{id:id},function(){
 			reload_data();
 			});
 			

@@ -7,12 +7,12 @@
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-start mb-0">Home | Auditor</h2>
+                            <h2 class="content-header-title float-start mb-0">Home | Audite</h2>
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Home</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Peningkatan
+                                    <li class="breadcrumb-item active">Evaluasi
                                     </li>
                                 </ol>
                             </div>
@@ -31,19 +31,22 @@
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-header border-bottom">
-                                                <h4 class="card-title">Peningkatan
+                                                <h4 class="card-title">Evaluasi
                                                     <br>
-                                                    <small>Peningkatan standar dalam SPMI Institusi</small>
+                                                    <small>Bentuk Evaluasi Yang Dijalankan & Melalui Mekanisme</small>
                                                 </h4>
-                                                    <button onclick="add()" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addData">Tambah Peningkatan</button>
+                                                    <button onclick="add()" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addData">Tambah Dokumen Evaluasi</button>
                                             </div>
                                             <div class="card-datatable">
                                                 <table class="dataTables_wrapper dt-bootstrap5 no-footer" id="table">
                                                     <thead>
                                                         <tr>
                                                             <th>No</th>
-                                                            <th>Nama Pengaturan</th>
-                                                            <th>Tanggal Penetapan Baru</th>
+                                                            <th>Nama File</th>
+                                                            <th>Jenis File</th>
+                                                            <th>Prodi</th>
+                                                            <th>Fakultas</th>
+                                                            <th>Tanggal Ditetapkan</th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </thead>
@@ -64,14 +67,14 @@
     <!-- END: Content-->
 
     <!-- Modal Tambah User -->
-    <div class="modal fade text-start" id="addData" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true" data-bs-focus="false">
+    <div class="modal fade text-start" id="addData" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div id="formAdd"></div>
         </div>
     </div>
 
     <!-- Modal Edit User -->
-    <div class="modal fade text-start" id="editData" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true" data-bs-focus="false">
+    <div class="modal fade text-start" id="editData" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div id="formEdit"></div>
         </div>
@@ -90,7 +93,7 @@
             "processing": false,
             "serverSide": false,
             "paging": true,
-            "ajax": "<?= site_url('auditor/getData_peningkatan'); ?>"
+            "ajax": "<?= site_url('audite/getData_evaluasi'); ?>"
         })
     });
 </script>
@@ -98,11 +101,11 @@
 <script>
 function add()
 {
-	$.post("<?= site_url("auditor/viewAddDataPeningkatan"); ?>",{},function(data){
+	$.post("<?= site_url("audite/viewAddDataEvaluasi"); ?>",{},function(data){
 		$("#formAdd").html(data);
 		$("#modal_edit").attr(
             "url",
-            "<?= site_url("auditor/insert_dataPeningkatan"); ?>"
+            "<?= site_url("audite/insert_dataEvaluasi"); ?>"
         );
 		$("#defaultModalLabel").html("Tambah");
 		$("#addModal").modal();
@@ -111,11 +114,11 @@ function add()
 
 function edit(id)
 {
-	$.post("<?= site_url("auditor/viewEditDataPeningkatan"); ?>",{id:id},function(data){
+	$.post("<?= site_url("audite/viewEditDataEvaluasi"); ?>",{id:id},function(data){
 		$("#formEdit").html(data);
 		$("#modal_edit").attr(
             "url",
-            "<?= site_url("auditor/update_dataPeningkatan"); ?>"
+            "<?= site_url("audite/update_dataEvaluasi"); ?>"
         );
 		$("#defaultModalLabel").html("Edit");
 		$("#editModal").modal();
@@ -124,11 +127,11 @@ function edit(id)
 
 function review(id)
 {
-	$.post("<?= site_url("auditor/viewReviewDataPeningkatan"); ?>",{id:id},function(data){
+	$.post("<?= site_url("audite/viewReviewDataEvaluasi"); ?>",{id:id},function(data){
 		$("#formReview").html(data);
 		// $("#modal_edit").attr(
     //         "url",
-    //         "<?= site_url("auditor/update_dataPeningkatan"); ?>"
+    //         "<?= site_url("audite/update_dataEvaluasi"); ?>"
     //     );
 		$("#defaultModalLabel").html("Review");
 		$("#reviewModal").modal();
@@ -137,7 +140,7 @@ function review(id)
 
 function download(id)
 {
-    var url = "<?= site_url("auditor/downloadPeningkatan/"); ?>" + id;
+    var url = "<?= site_url("audite/downloadEvaluasi/"); ?>" + id;
 	$.post(url);
 }
 
@@ -169,7 +172,7 @@ function hapus(id,akun)
 				}
 			});
 			
-			$.post("<?= site_url("auditor/delete_dataPeningkatan"); ?>",{id:id},function(){
+			$.post("<?= site_url("audite/delete_dataEvaluasi"); ?>",{id:id},function(){
 			reload_data();
 			});
 			
