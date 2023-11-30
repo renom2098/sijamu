@@ -31,6 +31,10 @@ class Auth extends CI_Controller {
             }
             elseif($lvl == 2){ // Auditor
                 redirect("auditor");
+            } elseif($lvl == 3) { // Audite
+              redirect("audite");
+            } elseif($lvl == 4) { // Pimpinan
+              redirect("pimpinan");
             } else {
               echo "<script>
               alert('Sorry gagal login, username atau password salah!');

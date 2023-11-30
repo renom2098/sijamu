@@ -35,6 +35,7 @@
                                                     <br>
                                                     <small>Standar Nasional Pendidikan Tinggi</small>
                                                 </h4>
+                                                    <button onclick="add()" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addData">Tambah Dokumen Pelaksanaan</button>
                                             </div>
                                             <div class="card-datatable">
                                                 <table class="dataTables_wrapper dt-bootstrap5 no-footer" id="table">
@@ -96,31 +97,31 @@
 </script>
 
 <script>
-// function add()
-// {
-// 	$.post("<?= site_url("auditor/viewAddDataPelaksanaan"); ?>",{},function(data){
-// 		$("#formAdd").html(data);
-// 		$("#modal_edit").attr(
-//             "url",
-//             "<?= site_url("auditor/insert_dataPelaksanaan"); ?>"
-//         );
-// 		$("#defaultModalLabel").html("Tambah");
-// 		$("#addModal").modal();
-// 	}); 
-// }
+function add()
+{
+	$.post("<?= site_url("auditor/viewAddDataPelaksanaan"); ?>",{},function(data){
+		$("#formAdd").html(data);
+		$("#modal_edit").attr(
+            "url",
+            "<?= site_url("auditor/insert_dataPelaksanaan"); ?>"
+        );
+		$("#defaultModalLabel").html("Tambah");
+		$("#addModal").modal();
+	}); 
+}
 
-// function edit(id)
-// {
-// 	$.post("<?= site_url("auditor/viewEditDataPelaksanaan"); ?>",{id:id},function(data){
-// 		$("#formEdit").html(data);
-// 		$("#modal_edit").attr(
-//             "url",
-//             "<?= site_url("auditor/update_dataPelaksanaan"); ?>"
-//         );
-// 		$("#defaultModalLabel").html("Edit");
-// 		$("#editModal").modal();
-// 	});
-// }
+function edit(id)
+{
+	$.post("<?= site_url("auditor/viewEditDataPelaksanaan"); ?>",{id:id},function(data){
+		$("#formEdit").html(data);
+		$("#modal_edit").attr(
+            "url",
+            "<?= site_url("auditor/update_dataPelaksanaan"); ?>"
+        );
+		$("#defaultModalLabel").html("Edit");
+		$("#editModal").modal();
+	});
+}
 
 function review(id)
 {
@@ -141,44 +142,44 @@ function download(id)
 	$.post(url);
 }
 
-// function hapus(id,akun)
-// {
-// 	swal({
-// 		title: 'Hapus ?',
-// 		type: 'warning',
-//         icon: 'warning',
-// 		buttons:{
-// 			cancel: {
-// 				visible: true,
-// 				text : 'Batal',
-// 				className: 'btn btn-danger'
-// 			},
-// 			confirm: {
-// 				text : 'Ya',
-// 				className : 'btn btn-success'
-// 			}
-// 		}
-// 	}).then((willDelete) => {
-// 		if (willDelete) {
-// 			swal("data telah dihapus", {
-// 				icon: "success",
-// 				buttons : {
-// 					confirm : {
-// 						className: 'btn btn-success'
-// 					}
-// 				}
-// 			});
+function hapus(id,akun)
+{
+	swal({
+		title: 'Hapus ?',
+		type: 'warning',
+        icon: 'warning',
+		buttons:{
+			cancel: {
+				visible: true,
+				text : 'Batal',
+				className: 'btn btn-danger'
+			},
+			confirm: {
+				text : 'Ya',
+				className : 'btn btn-success'
+			}
+		}
+	}).then((willDelete) => {
+		if (willDelete) {
+			swal("data telah dihapus", {
+				icon: "success",
+				buttons : {
+					confirm : {
+						className: 'btn btn-success'
+					}
+				}
+			});
 			
-// 			$.post("<?= site_url("auditor/delete_dataPelaksanaan"); ?>",{id:id},function(){
-// 			reload_data();
-// 			});
+			$.post("<?= site_url("auditor/delete_dataPelaksanaan"); ?>",{id:id},function(){
+			reload_data();
+			});
 			
-// 		}
-// 	});
-// };
+		}
+	});
+};
 
-// function reload_data ()
-// {
-// 	window.location.reload();	
-// };
+function reload_data ()
+{
+	window.location.reload();	
+};
 </script>

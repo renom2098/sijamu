@@ -92,10 +92,16 @@ class Model_evaluasi extends CI_Model  {
         $id = $this->input->post("id");
         $form = $this->input->post("f");
         $timenow = date("Y-m-d");
+        $id_level = $this->fungsi->user_login()->level;
+        $id_fakultas = $this->fungsi->user_login()->fakultas;
+        $id_prodi = $this->fungsi->user_login()->prodi;
 
         $this->db->set($form);
         $this->db->set("nama_file", $nama_file);
         $this->db->set("_ctimeupdate", $timenow);
+        $this->db->set("id_level", $id_level);
+        $this->db->set("id_fakultas", $id_fakultas);
+        $this->db->set("id_prodi", $id_prodi);
         $this->db->where("id", $id);
         return $this->db->update("data_evaluasi");
     }

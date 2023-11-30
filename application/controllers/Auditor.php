@@ -51,8 +51,10 @@ class Auditor extends CI_Controller {
             $row[] = $penetapan->tanggal_ditetapkan;
             // add html for action
             $row[] = '<div aria-label="Basic example" class="btn-groupss" role="group">
-            <button onclick="download(`'.$penetapan->id.'`)" class="btn btn-sm btn-secondary pd-x-25" type="button">Download</button>
+            <button onclick="edit(`'.$penetapan->id.'`,`'.$penetapan->nama_peraturan.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button>
             <button onclick="review(`'.$penetapan->id.'`,`'.$penetapan->nama_peraturan.'`)" class="btn btn-sm btn-info pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#reviewData">Review</button>
+            <button onclick="hapus(`'.$penetapan->id.'`,`'.$penetapan->nama_peraturan.'`)" class="btn btn-sm btn-danger pd-x-25" type="button">Hapus</button>
+            <button onclick="download(`'.$penetapan->id.'`)" class="btn btn-sm btn-secondary pd-x-25" type="button">Download</button>
             </div>';
             $data[] = $row;
         }
@@ -64,6 +66,62 @@ class Auditor extends CI_Controller {
                 );
         // output to json format
         echo json_encode($output);
+  }
+
+  public function viewAddDataPenetapan(){
+    $this->load->view('auditor/view_formAddPenetapan');
+  }
+
+  public function viewEditDataPenetapan(){
+    $data["data"]=$this->model_penetapan->view_dataPenetapan();
+    $this->load->view('auditor/view_formEditPenetapan', $data);
+  }
+
+  public function insert_dataPenetapan(){
+    $config['upload_path']          = './dokumen/penetapan/';
+		$config['allowed_types']        = 'xls|xlsx|pdf';
+		$config['max_size']             = 10000;
+		$config['encrypt_name']			    = FALSE;
+
+		$this->load->library('upload', $config);
+		if ( ! $this->upload->do_upload('nama_file'))
+		{
+			$nama_file = null;
+			$this->model_penetapan->insert_dataPenetapan($nama_file);
+      redirect("auditor/penetapan");
+		}
+		else
+		{
+			$nama_file = $this->upload->data("file_name");
+			$this->model_penetapan->insert_dataPenetapan($nama_file);
+      redirect("auditor/penetapan");
+		}    
+  }
+
+  public function update_dataPenetapan(){
+    $config['upload_path']          = './dokumen/penetapan/';
+		$config['allowed_types']        = 'xls|xlsx|pdf';
+		$config['max_size']             = 10000;
+		$config['encrypt_name']			    = FALSE;
+
+		$this->load->library('upload', $config);
+		if ( ! $this->upload->do_upload('nama_file'))
+		{
+			$nama_file = null;
+			$this->model_penetapan->update_dataPenetapan($nama_file);
+      redirect("auditor/penetapan");
+		}
+		else
+		{
+			$nama_file = $this->upload->data("file_name");
+      $this->model_penetapan->update_dataPenetapan($nama_file);
+      redirect("auditor/penetapan");
+		}
+      
+  }
+
+  public function delete_dataPenetapan(){
+      $this->model_penetapan->delete_dataPenetapan();
   }
 
   public function downloadPenetapan($id){
@@ -97,8 +155,10 @@ class Auditor extends CI_Controller {
             $row[] = $pelaksanaan->tanggal_ditetapkan;
             // add html for action
             $row[] = '<div aria-label="Basic example" class="btn-groupss" role="group">
-            <button onclick="download(`'.$pelaksanaan->id.'`)" class="btn btn-sm btn-secondary pd-x-25" type="button">Download</button>
+            <button onclick="edit(`'.$pelaksanaan->id.'`,`'.$pelaksanaan->nama_dok_pelaksanaan.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button>
             <button onclick="review(`'.$pelaksanaan->id.'`,`'.$pelaksanaan->nama_dok_pelaksanaan.'`)" class="btn btn-sm btn-info pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#reviewData">Review</button>
+            <button onclick="hapus(`'.$pelaksanaan->id.'`,`'.$pelaksanaan->nama_dok_pelaksanaan.'`)" class="btn btn-sm btn-danger pd-x-25" type="button">Hapus</button>
+            <button onclick="download(`'.$pelaksanaan->id.'`)" class="btn btn-sm btn-secondary pd-x-25" type="button">Download</button>
             </div>';
             $data[] = $row;
         }
@@ -110,6 +170,62 @@ class Auditor extends CI_Controller {
                 );
         // output to json format
         echo json_encode($output);
+  }
+
+  public function viewAddDataPelaksanaan(){
+    $this->load->view('auditor/view_formAddPelaksanaan');
+  }
+
+  public function viewEditDataPelaksanaan(){
+    $data["data"]=$this->model_pelaksanaan->view_dataPelaksanaan();
+    $this->load->view('auditor/view_formEditPelaksanaan', $data);
+  }
+
+  public function insert_dataPelaksanaan(){
+    $config['upload_path']          = './dokumen/pelaksanaan/';
+		$config['allowed_types']        = 'xls|xlsx|pdf';
+		$config['max_size']             = 10000;
+		$config['encrypt_name']			    = FALSE;
+
+		$this->load->library('upload', $config);
+		if ( ! $this->upload->do_upload('nama_file'))
+		{
+      $nama_file = null;
+      $this->model_pelaksanaan->insert_dataPelaksanaan($nama_file);
+      redirect("auditor/pelaksanaan");
+		}
+		else
+		{
+			$nama_file = $this->upload->data("file_name");
+			$this->model_pelaksanaan->insert_dataPelaksanaan($nama_file);
+      redirect("auditor/pelaksanaan");
+		}    
+  }
+
+  public function update_dataPelaksanaan(){
+    $config['upload_path']          = './dokumen/pelaksanaan/';
+		$config['allowed_types']        = 'xls|xlsx|pdf';
+		$config['max_size']             = 10000;
+		$config['encrypt_name']			    = FALSE;
+
+		$this->load->library('upload', $config);
+		if ( ! $this->upload->do_upload('nama_file'))
+		{
+      $nama_file = null;
+      $this->model_pelaksanaan->update_dataPelaksanaan($nama_file);
+      redirect("auditor/pelaksanaan");
+		}
+		else
+		{
+			$nama_file = $this->upload->data("file_name");
+      $this->model_pelaksanaan->update_dataPelaksanaan($nama_file);
+      redirect("auditor/pelaksanaan");
+		}
+      
+  }
+
+  public function delete_dataPelaksanaan(){
+      $this->model_pelaksanaan->delete_dataPelaksanaan();
   }
 
   public function downloadPelaksanaan($id){
@@ -258,7 +374,9 @@ class Auditor extends CI_Controller {
             $row[] = $pengendalian->_ctimeupload;
             // add html for action
             $row[] = '<div aria-label="Basic example" class="btn-groupss" role="group">
+            <button onclick="edit(`'.$pengendalian->id.'`,`'.$pengendalian->nama_bidang_pengaturan_standar.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button>
             <button onclick="review(`'.$pengendalian->id.'`,`'.$pengendalian->nama_bidang_pengaturan_standar.'`)" class="btn btn-sm btn-info pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#reviewData">Review</button>
+            <button onclick="hapus(`'.$pengendalian->id.'`,`'.$pengendalian->nama_bidang_pengaturan_standar.'`)" class="btn btn-sm btn-danger pd-x-25" type="button">Hapus</button>
             </div>';
             $data[] = $row;
         }
@@ -272,9 +390,32 @@ class Auditor extends CI_Controller {
         echo json_encode($output);
   }
 
+  public function viewAddDataPengendalian(){
+    $this->load->view('auditor/view_formAddPengendalian');
+  }
+
+  public function viewEditDataPengendalian(){
+    $data["data"]=$this->model_pengendalian->view_dataPengendalian();
+    $this->load->view('auditor/view_formEditPengendalian', $data);
+  }
+
   public function viewReviewDataPengendalian(){
     $data["data"]=$this->model_pengendalian->view_dataPengendalian();
     $this->load->view('auditor/view_formReviewPengendalian', $data);
+  }
+
+  public function insert_dataPengendalian(){
+    $this->model_pengendalian->insert_dataPengendalian();
+    redirect("auditor/pengendalian");
+  }
+
+  public function update_dataPengendalian(){
+    $this->model_pengendalian->update_dataPengendalian();
+    redirect("auditor/pengendalian");
+  }
+
+  public function delete_dataPengendalian(){
+    $this->model_pengendalian->delete_datapengendalian();
   }
 
   // public function downloadPengendalian($id){
@@ -302,7 +443,9 @@ class Auditor extends CI_Controller {
             $row[] = $peningkatan->tanggal_penetapan_baru;
             // add html for action
             $row[] = '<div aria-label="Basic example" class="btn-groupss" role="group">
+            <button onclick="edit(`'.$peningkatan->id.'`,`'.$peningkatan->nama_pengaturan.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button>
             <button onclick="review(`'.$peningkatan->id.'`,`'.$peningkatan->nama_pengaturan.'`)" class="btn btn-sm btn-info pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#reviewData">Review</button>
+            <button onclick="hapus(`'.$peningkatan->id.'`,`'.$peningkatan->nama_pengaturan.'`)" class="btn btn-sm btn-danger pd-x-25" type="button">Hapus</button>
             </div>';
             $data[] = $row;
         }
@@ -316,9 +459,32 @@ class Auditor extends CI_Controller {
         echo json_encode($output);
   }
 
+  public function viewAddDataPeningkatan(){
+    $this->load->view('auditor/view_formAddPeningkatan');
+  }
+
+  public function viewEditDataPeningkatan(){
+    $data["data"]=$this->model_peningkatan->view_dataPeningkatan();
+    $this->load->view('auditor/view_formEditPeningkatan', $data);
+  }
+
   public function viewReviewDataPeningkatan(){
     $data["data"]=$this->model_peningkatan->view_dataPeningkatan();
     $this->load->view('auditor/view_formReviewPeningkatan', $data);
+  }
+
+  public function insert_dataPeningkatan(){
+    $this->model_peningkatan->insert_dataPeningkatan();
+    redirect("auditor/peningkatan");
+  }
+
+  public function update_dataPeningkatan(){
+    $this->model_peningkatan->update_dataPeningkatan();
+    redirect("auditor/peningkatan");
+  }
+
+  public function delete_dataPeningkatan(){
+    $this->model_peningkatan->delete_dataPeningkatan();
   }
   // Bagian Peningkatan
 
