@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2023 at 05:04 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 7.4.30
+-- Generation Time: Nov 30, 2023 at 10:07 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,7 +41,7 @@ CREATE TABLE `data_evaluasi` (
   `id_level` int(11) DEFAULT NULL,
   `id_fakultas` int(11) DEFAULT NULL,
   `id_prodi` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `data_evaluasi`
@@ -73,9 +73,16 @@ CREATE TABLE `data_pelaksanaan` (
   `_ctimeupload` date DEFAULT NULL,
   `_ctimeupdate` date DEFAULT NULL,
   `id_level` int(11) DEFAULT NULL,
-  `id_fakutas` int(11) DEFAULT NULL,
+  `id_fakultas` int(11) DEFAULT NULL,
   `id_prodi` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `data_pelaksanaan`
+--
+
+INSERT INTO `data_pelaksanaan` (`id`, `nama_dok_pelaksanaan`, `jenis_dok_pelaksanaan`, `tanggal_ditetapkan`, `tautan`, `nama_file`, `_ctimeupload`, `_ctimeupdate`, `id_level`, `id_fakultas`, `id_prodi`) VALUES
+(3, 'jjj2', 'jjj2', '2023-11-01', 'jjj2', NULL, '2023-11-30', '2023-11-30', 2, 1, 6);
 
 -- --------------------------------------------------------
 
@@ -95,7 +102,7 @@ CREATE TABLE `data_penetapan` (
   `id_level` int(11) DEFAULT NULL,
   `id_fakultas` int(11) DEFAULT NULL,
   `id_prodi` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `data_penetapan`
@@ -103,7 +110,8 @@ CREATE TABLE `data_penetapan` (
 
 INSERT INTO `data_penetapan` (`id`, `nama_peraturan`, `jenis_peraturan`, `tanggal_ditetapkan`, `nama_file`, `tautan`, `_ctimeupload`, `_ctimeupdate`, `id_level`, `id_fakultas`, `id_prodi`) VALUES
 (29, 'coba1', 'coba3', '2023-11-06', NULL, 'https://docs.google.com/spreadsheets/d/1k_i5dIp5Ux4Y-yPo87_HXvt5iwle2pE-/edit?usp=sharing&ouid=104210493633833115442&rtpof=true&sd=true', '2023-11-06', '2023-11-06', NULL, NULL, NULL),
-(30, 'coba coba', 'coba coba', '2023-11-01', NULL, 'https://docs.google.com/spreadsheets/d/1k_i5dIp5Ux4Y-yPo87_HXvt5iwle2pE-/edit?usp=sharing&ouid=104210493633833115442&rtpof=true&sd=true', '2023-11-29', '2023-11-29', NULL, NULL, NULL);
+(30, 'coba coba', 'coba coba', '2023-11-01', NULL, 'https://docs.google.com/spreadsheets/d/1k_i5dIp5Ux4Y-yPo87_HXvt5iwle2pE-/edit?usp=sharing&ouid=104210493633833115442&rtpof=true&sd=true', '2023-11-29', '2023-11-29', NULL, NULL, NULL),
+(31, 'cek2', 'cek2', '2023-11-01', NULL, 'eee2', '2023-11-30', '2023-11-30', 2, 1, 6);
 
 -- --------------------------------------------------------
 
@@ -123,7 +131,14 @@ CREATE TABLE `data_pengendalian` (
   `id_level` int(11) DEFAULT NULL,
   `id_fakultas` int(11) DEFAULT NULL,
   `id_prodi` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `data_pengendalian`
+--
+
+INSERT INTO `data_pengendalian` (`id`, `nama_bidang_pengaturan_standar`, `tautan_pelaksanaan_rtm`, `tautan_bukti_pelaksanaan_rtm`, `tautan_pelaksanaan_rtl`, `tautan_bukti_pelaksanaan_rtl`, `_ctimeupload`, `_ctimeupdate`, `id_level`, `id_fakultas`, `id_prodi`) VALUES
+(5, 'dw2', 'dw2', 'dw3', 'dw4', 'dw5', '2023-11-30', '2023-11-30', 2, 1, 6);
 
 -- --------------------------------------------------------
 
@@ -142,7 +157,14 @@ CREATE TABLE `data_peningkatan` (
   `id_level` int(11) DEFAULT NULL,
   `id_fakultas` int(11) DEFAULT NULL,
   `id_prodi` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `data_peningkatan`
+--
+
+INSERT INTO `data_peningkatan` (`id`, `nama_pengaturan`, `tautan_penetapan`, `tautan_peningkatan`, `tanggal_penetapan_baru`, `_ctimeupload`, `_ctimeupdate`, `id_level`, `id_fakultas`, `id_prodi`) VALUES
+(3, 'dddw', 'dddw', 'dddw', '2023-11-30', '2023-11-30', '2023-11-30', 2, 1, 6);
 
 -- --------------------------------------------------------
 
@@ -153,7 +175,7 @@ CREATE TABLE `data_peningkatan` (
 CREATE TABLE `t_fakultas` (
   `id` int(11) NOT NULL,
   `nama_fakultas` varchar(128) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `t_fakultas`
@@ -185,7 +207,7 @@ INSERT INTO `t_fakultas` (`id`, `nama_fakultas`) VALUES
 CREATE TABLE `t_level` (
   `id` int(11) NOT NULL,
   `nama_level` varchar(128) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `t_level`
@@ -206,7 +228,7 @@ INSERT INTO `t_level` (`id`, `nama_level`) VALUES
 CREATE TABLE `t_prodi` (
   `id` int(11) NOT NULL,
   `nama_prodi` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `t_prodi`
@@ -264,7 +286,7 @@ CREATE TABLE `t_user` (
   `nama_lengkap` varchar(128) DEFAULT NULL,
   `_ctimeupload` date DEFAULT NULL,
   `_ctimeupdate` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `t_user`
@@ -348,25 +370,25 @@ ALTER TABLE `data_evaluasi`
 -- AUTO_INCREMENT for table `data_pelaksanaan`
 --
 ALTER TABLE `data_pelaksanaan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `data_penetapan`
 --
 ALTER TABLE `data_penetapan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `data_pengendalian`
 --
 ALTER TABLE `data_pengendalian`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `data_peningkatan`
 --
 ALTER TABLE `data_peningkatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `t_fakultas`
