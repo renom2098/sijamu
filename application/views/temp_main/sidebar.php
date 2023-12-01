@@ -62,6 +62,7 @@
                 </li>
                 <li class="<?= $this->uri->segment(2) == 'peningkatan' ? 'active' : '' ?> nav-item"><a class="d-flex align-items-center" href="<?= base_url(); ?>admin/peningkatan"><i data-feather="trending-up"></i><span class="menu-title text-truncate" data-i18n="Peningkatan">Peningkatan</span></a>
                 </li>
+                <!-- bisa ditambahkan if == admmin  -->
                 <div class="divider divider-primary">
                     <div class="divider-text">User</div>
                 </div>

@@ -285,14 +285,14 @@ class Auditor extends CI_Controller {
   public function viewAddDataEvaluasi(){
     $data["fakultas"]=$this->model_pengguna->getAllFakultas();
     $data["prodi"]=$this->model_pengguna->getAllProdi();
-    $this->load->view('auditor/view_formAddevaluasi', $data);
+    $this->load->view('auditor/view_formAddEvaluasi', $data);
   }
 
   public function viewEditDataEvaluasi(){
     $data["data_fakultas"]=$this->model_pengguna->getAllFakultas();
     $data["data_prodi"]=$this->model_pengguna->getAllProdi();
     $data["data"]=$this->model_evaluasi->view_dataEvaluasi();
-    $this->load->view('auditor/view_formEditevaluasi', $data);
+    $this->load->view('auditor/view_formEditEvaluasi', $data);
   }
 
   public function insert_dataEvaluasi(){

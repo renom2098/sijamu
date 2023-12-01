@@ -30,7 +30,7 @@
                             <div class="row">
                                 
                                 <div class="col-md-6 col-xl-4">
-                                    <a href="<?= base_url('auditor'); ?>">
+                                    <a href="<?= base_url('audite'); ?>">
                                     <div class="card bg-primary text-white">
                                         <div class="card-body">
                                             <h4 class="card-title text-white text-center">Home</h4>
@@ -40,7 +40,7 @@
                                 </div>
 
                                 <div class="col-md-6 col-xl-4">
-                                    <a href="<?= base_url('auditor/penetapan'); ?>">
+                                    <a href="<?= base_url('audite/penetapan'); ?>">
                                     <div class="card bg-secondary text-white">
                                         <div class="card-body">
                                             <h4 class="card-title text-white text-center">Penetapan</h4>
@@ -50,7 +50,7 @@
                                 </div>
 
                                 <div class="col-md-6 col-xl-4">
-                                    <a href="<?= base_url('auditor/pelaksanaan'); ?>">
+                                    <a href="<?= base_url('audite/pelaksanaan'); ?>">
                                     <div class="card bg-success text-white">
                                         <div class="card-body">
                                             <h4 class="card-title text-white text-center">Pelaksanaan</h4>
@@ -60,7 +60,7 @@
                                 </div>
 
                                 <div class="col-md-6 col-xl-4">
-                                    <a href="<?= base_url('auditor/evaluasi'); ?>">
+                                    <a href="<?= base_url('audite/evaluasi'); ?>">
                                     <div class="card bg-danger text-white">
                                         <div class="card-body">
                                             <h4 class="card-title text-white text-center">Evaluasi</h4>
@@ -70,7 +70,7 @@
                                 </div>
 
                                 <div class="col-md-6 col-xl-4">
-                                    <a href="<?= base_url('auditor/pengendalian'); ?>">
+                                    <a href="<?= base_url('audite/pengendalian'); ?>">
                                     <div class="card bg-warning text-white">
                                         <div class="card-body">
                                             <h4 class="card-title text-white text-center">Pengendalian</h4>
@@ -80,7 +80,7 @@
                                 </div>
 
                                 <div class="col-md-6 col-xl-4">
-                                    <a href="<?= base_url('auditor/peningkatan'); ?>">
+                                    <a href="<?= base_url('audite/peningkatan'); ?>">
                                     <div class="card bg-info text-white">
                                         <div class="card-body">
                                             <h4 class="card-title text-white text-center">Peningkatan</h4>
