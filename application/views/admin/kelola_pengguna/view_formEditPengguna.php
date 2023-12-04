@@ -6,6 +6,7 @@ $nama_lengkap = $data->nama_lengkap ?? '';
 $level = $data->level ?? '';
 $fakultas = $data->fakultas ?? '';
 $prodi = $data->prodi ?? '';
+$jenis = $data->jenis ?? '';
 ?>
 
 <div class="modal-content">
@@ -47,6 +48,23 @@ $prodi = $data->prodi ?? '';
 
                         $attr = array('class' => 'form-select', 'id' => 'horizontal-level-input', 'required' => 'required');
                         echo form_dropdown('f[level]', $options, $level, $attr);
+                        unset($options);
+                        unset($attr);
+                    ?>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="mb-1">
+                    <label for="horizontal-jenis-input" class="col-sm-3 col-form-label">Jenis</label>
+                    <?php
+                        $options = array('' => '===Pilih jenis===',);
+                        foreach ($data_jenis->result() as $js) {
+                            $options[$js->id] = $js->nama_jenis;
+                        }
+
+                        $attr = array('class' => 'form-select', 'id' => 'horizontal-jenis-input', 'required' => 'required');
+                        echo form_dropdown('f[jenis]', $options, $jenis, $attr);
                         unset($options);
                         unset($attr);
                     ?>

@@ -51,9 +51,7 @@ class Auditor extends CI_Controller {
             $row[] = $penetapan->tanggal_ditetapkan;
             // add html for action
             $row[] = '<div aria-label="Basic example" class="btn-groupss" role="group">
-            <button onclick="edit(`'.$penetapan->id.'`,`'.$penetapan->nama_peraturan.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button>
             <button onclick="review(`'.$penetapan->id.'`,`'.$penetapan->nama_peraturan.'`)" class="btn btn-sm btn-info pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#reviewData">Review</button>
-            <button onclick="hapus(`'.$penetapan->id.'`,`'.$penetapan->nama_peraturan.'`)" class="btn btn-sm btn-danger pd-x-25" type="button">Hapus</button>
             <button onclick="download(`'.$penetapan->id.'`)" class="btn btn-sm btn-secondary pd-x-25" type="button">Download</button>
             </div>';
             $data[] = $row;
@@ -154,10 +152,8 @@ class Auditor extends CI_Controller {
             $row[] = $pelaksanaan->jenis_dok_pelaksanaan;
             $row[] = $pelaksanaan->tanggal_ditetapkan;
             // add html for action
-            $row[] = '<div aria-label="Basic example" class="btn-groupss" role="group">
-            <button onclick="edit(`'.$pelaksanaan->id.'`,`'.$pelaksanaan->nama_dok_pelaksanaan.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button>
+            $row[] = '<div aria-label="Basic example" class="btn-groupss" role="group">   
             <button onclick="review(`'.$pelaksanaan->id.'`,`'.$pelaksanaan->nama_dok_pelaksanaan.'`)" class="btn btn-sm btn-info pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#reviewData">Review</button>
-            <button onclick="hapus(`'.$pelaksanaan->id.'`,`'.$pelaksanaan->nama_dok_pelaksanaan.'`)" class="btn btn-sm btn-danger pd-x-25" type="button">Hapus</button>
             <button onclick="download(`'.$pelaksanaan->id.'`)" class="btn btn-sm btn-secondary pd-x-25" type="button">Download</button>
             </div>';
             $data[] = $row;
@@ -265,8 +261,6 @@ class Auditor extends CI_Controller {
             $row[] = $evaluasi->tanggal_ditetapkan;
             // add html for action
             $row[] = '<div aria-label="Basic example" class="btn-groupss" role="group">
-            <button onclick="edit(`'.$evaluasi->id.'`,`'.$evaluasi->nama_dok_evaluasi.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button> 
-            <button onclick="hapus(`'.$evaluasi->id.'`,`'.$evaluasi->nama_dok_evaluasi.'`)" class="btn btn-sm btn-danger pd-x-25" type="button">Hapus</button>
             <button onclick="review(`'.$evaluasi->id.'`,`'.$evaluasi->nama_dok_evaluasi.'`)" class="btn btn-sm btn-info pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#reviewData">Review</button>
             <button onclick="download(`'.$evaluasi->id.'`)" class="btn btn-sm btn-secondary pd-x-25" type="button">Download</button>
             </div>';
@@ -374,9 +368,7 @@ class Auditor extends CI_Controller {
             $row[] = $pengendalian->_ctimeupload;
             // add html for action
             $row[] = '<div aria-label="Basic example" class="btn-groupss" role="group">
-            <button onclick="edit(`'.$pengendalian->id.'`,`'.$pengendalian->nama_bidang_pengaturan_standar.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button>
             <button onclick="review(`'.$pengendalian->id.'`,`'.$pengendalian->nama_bidang_pengaturan_standar.'`)" class="btn btn-sm btn-info pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#reviewData">Review</button>
-            <button onclick="hapus(`'.$pengendalian->id.'`,`'.$pengendalian->nama_bidang_pengaturan_standar.'`)" class="btn btn-sm btn-danger pd-x-25" type="button">Hapus</button>
             </div>';
             $data[] = $row;
         }
@@ -443,9 +435,7 @@ class Auditor extends CI_Controller {
             $row[] = $peningkatan->tanggal_penetapan_baru;
             // add html for action
             $row[] = '<div aria-label="Basic example" class="btn-groupss" role="group">
-            <button onclick="edit(`'.$peningkatan->id.'`,`'.$peningkatan->nama_pengaturan.'`)" class="btn btn-sm btn-primary pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#editData">Edit</button>
             <button onclick="review(`'.$peningkatan->id.'`,`'.$peningkatan->nama_pengaturan.'`)" class="btn btn-sm btn-info pd-x-25" type="button" data-bs-toggle="modal" data-bs-target="#reviewData">Review</button>
-            <button onclick="hapus(`'.$peningkatan->id.'`,`'.$peningkatan->nama_pengaturan.'`)" class="btn btn-sm btn-danger pd-x-25" type="button">Hapus</button>
             </div>';
             $data[] = $row;
         }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2023 at 10:07 AM
+-- Generation Time: Dec 04, 2023 at 09:34 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -40,22 +40,25 @@ CREATE TABLE `data_evaluasi` (
   `_ctimeupdate` date DEFAULT NULL,
   `id_level` int(11) DEFAULT NULL,
   `id_fakultas` int(11) DEFAULT NULL,
-  `id_prodi` int(11) DEFAULT NULL
+  `id_prodi` int(11) DEFAULT NULL,
+  `id_jenis` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `data_evaluasi`
 --
 
-INSERT INTO `data_evaluasi` (`id`, `nama_dok_evaluasi`, `jenis_dok_evaluasi`, `tanggal_ditetapkan`, `nama_file`, `tautan_excel`, `prodi`, `fakultas`, `_ctimeupload`, `_ctimeupdate`, `id_level`, `id_fakultas`, `id_prodi`) VALUES
-(7, 'tautan1', 'tautan2', '2023-11-29', NULL, 'tautanexcel.dkdk.dldld', 9, 11, '2023-11-29', '2023-11-29', NULL, NULL, 6),
-(8, 'tautan1', 'tautan2', '', NULL, 'tautanexcel.dkdk.dldld', 1, 2, '2023-11-29', '2023-11-29', 1, NULL, NULL),
-(9, 'tautan1', 'tautan2', '', NULL, 'tautanexcel.dkdk.dldld', 3, 2, '2023-11-29', '2023-11-29', 1, NULL, NULL),
-(10, 'tautan1', 'tautan2', '', NULL, 'tautanexcel.dkdk.dldld', 1, 1, '2023-11-29', '2023-11-29', 1, NULL, NULL),
-(11, 'tautan1', 'tautan2', '', NULL, 'tautanexcel.dkdk.dldld', 1, 1, '2023-11-29', '2023-11-29', NULL, NULL, NULL),
-(12, 'tautan1', 'tautan2', '', NULL, 'tautanexcel.dkdk.dldld', 2, 3, '2023-11-29', '2023-11-29', 1, NULL, NULL),
-(13, 'dd', 'dd', '2023-11-30', NULL, 'dsd', 1, 1, '2023-11-29', '2023-11-29', 1, 9, 17),
-(14, 'tautan12reno', 'tautan22reno', '2023-11-30', NULL, 'tautanexcel.dkdk.dldld', 9, 11, '2023-11-29', '2023-11-29', 2, 1, 6);
+INSERT INTO `data_evaluasi` (`id`, `nama_dok_evaluasi`, `jenis_dok_evaluasi`, `tanggal_ditetapkan`, `nama_file`, `tautan_excel`, `prodi`, `fakultas`, `_ctimeupload`, `_ctimeupdate`, `id_level`, `id_fakultas`, `id_prodi`, `id_jenis`) VALUES
+(7, 'tautan1', 'tautan2', '2023-11-29', NULL, 'tautanexcel.dkdk.dldld', 9, 11, '2023-11-29', '2023-11-29', NULL, NULL, 6, NULL),
+(8, 'tautan1', 'tautan2', '', NULL, 'tautanexcel.dkdk.dldld', 1, 2, '2023-11-29', '2023-11-29', 1, NULL, NULL, NULL),
+(9, 'tautan1', 'tautan2', '', NULL, 'tautanexcel.dkdk.dldld', 3, 2, '2023-11-29', '2023-11-29', 1, NULL, NULL, NULL),
+(10, 'tautan1', 'tautan2', '', NULL, 'tautanexcel.dkdk.dldld', 1, 1, '2023-11-29', '2023-11-29', 1, NULL, NULL, NULL),
+(11, 'tautan1', 'tautan2', '', NULL, 'tautanexcel.dkdk.dldld', 1, 1, '2023-11-29', '2023-11-29', NULL, NULL, NULL, NULL),
+(12, 'tautan1', 'tautan2', '', NULL, 'tautanexcel.dkdk.dldld', 2, 3, '2023-11-29', '2023-11-29', 1, NULL, NULL, NULL),
+(13, 'dd', 'dd', '2023-11-30', NULL, 'dsd', 1, 1, '2023-11-29', '2023-11-29', 1, 5, 17, NULL),
+(14, 'tautan12reno', 'tautan22reno', '2023-11-30', NULL, 'tautanexcel.dkdk.dldld', 9, 11, '2023-11-29', '2023-11-29', 2, 5, 7, NULL),
+(15, 'ini data fikom21', 'ini data fikom2', '2023-12-02', NULL, 'ini data fikom', 8, 5, '2023-12-02', '2023-12-04', 3, 5, 8, 2),
+(16, 'ini data fikom', 'ini data fikom', '2023-12-02', NULL, 'ini data fikom', 8, 5, '2023-12-02', '2023-12-02', 3, 5, 9, NULL);
 
 -- --------------------------------------------------------
 
@@ -74,15 +77,16 @@ CREATE TABLE `data_pelaksanaan` (
   `_ctimeupdate` date DEFAULT NULL,
   `id_level` int(11) DEFAULT NULL,
   `id_fakultas` int(11) DEFAULT NULL,
-  `id_prodi` int(11) DEFAULT NULL
+  `id_prodi` int(11) DEFAULT NULL,
+  `id_jenis` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `data_pelaksanaan`
 --
 
-INSERT INTO `data_pelaksanaan` (`id`, `nama_dok_pelaksanaan`, `jenis_dok_pelaksanaan`, `tanggal_ditetapkan`, `tautan`, `nama_file`, `_ctimeupload`, `_ctimeupdate`, `id_level`, `id_fakultas`, `id_prodi`) VALUES
-(3, 'jjj2', 'jjj2', '2023-11-01', 'jjj2', NULL, '2023-11-30', '2023-11-30', 2, 1, 6);
+INSERT INTO `data_pelaksanaan` (`id`, `nama_dok_pelaksanaan`, `jenis_dok_pelaksanaan`, `tanggal_ditetapkan`, `tautan`, `nama_file`, `_ctimeupload`, `_ctimeupdate`, `id_level`, `id_fakultas`, `id_prodi`, `id_jenis`) VALUES
+(3, 'jjj2', 'jjj2', '2023-11-01', 'jjj2', NULL, '2023-11-30', '2023-11-30', 2, 1, 6, NULL);
 
 -- --------------------------------------------------------
 
@@ -101,17 +105,18 @@ CREATE TABLE `data_penetapan` (
   `_ctimeupdate` date DEFAULT NULL,
   `id_level` int(11) DEFAULT NULL,
   `id_fakultas` int(11) DEFAULT NULL,
-  `id_prodi` int(11) DEFAULT NULL
+  `id_prodi` int(11) DEFAULT NULL,
+  `id_jenis` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `data_penetapan`
 --
 
-INSERT INTO `data_penetapan` (`id`, `nama_peraturan`, `jenis_peraturan`, `tanggal_ditetapkan`, `nama_file`, `tautan`, `_ctimeupload`, `_ctimeupdate`, `id_level`, `id_fakultas`, `id_prodi`) VALUES
-(29, 'coba1', 'coba3', '2023-11-06', NULL, 'https://docs.google.com/spreadsheets/d/1k_i5dIp5Ux4Y-yPo87_HXvt5iwle2pE-/edit?usp=sharing&ouid=104210493633833115442&rtpof=true&sd=true', '2023-11-06', '2023-11-06', NULL, NULL, NULL),
-(30, 'coba coba', 'coba coba', '2023-11-01', NULL, 'https://docs.google.com/spreadsheets/d/1k_i5dIp5Ux4Y-yPo87_HXvt5iwle2pE-/edit?usp=sharing&ouid=104210493633833115442&rtpof=true&sd=true', '2023-11-29', '2023-11-29', NULL, NULL, NULL),
-(31, 'cek2', 'cek2', '2023-11-01', NULL, 'eee2', '2023-11-30', '2023-11-30', 2, 1, 6);
+INSERT INTO `data_penetapan` (`id`, `nama_peraturan`, `jenis_peraturan`, `tanggal_ditetapkan`, `nama_file`, `tautan`, `_ctimeupload`, `_ctimeupdate`, `id_level`, `id_fakultas`, `id_prodi`, `id_jenis`) VALUES
+(29, 'coba11', 'coba3', '2023-11-06', NULL, 'https://docs.google.com/spreadsheets/d/1k_i5dIp5Ux4Y-yPo87_HXvt5iwle2pE-/edit?usp=sharing&ouid=104210493633833115442&rtpof=true&sd=true', '2023-11-06', '2023-12-04', 1, 9, 17, 1),
+(30, 'coba coba', 'coba coba', '2023-11-01', NULL, 'https://docs.google.com/spreadsheets/d/1k_i5dIp5Ux4Y-yPo87_HXvt5iwle2pE-/edit?usp=sharing&ouid=104210493633833115442&rtpof=true&sd=true', '2023-11-29', '2023-11-29', NULL, NULL, NULL, 0),
+(31, 'cek2', 'cek2', '2023-11-01', NULL, 'eee2', '2023-11-30', '2023-11-30', 2, 1, 6, 0);
 
 -- --------------------------------------------------------
 
@@ -130,15 +135,16 @@ CREATE TABLE `data_pengendalian` (
   `_ctimeupdate` date DEFAULT NULL,
   `id_level` int(11) DEFAULT NULL,
   `id_fakultas` int(11) DEFAULT NULL,
-  `id_prodi` int(11) DEFAULT NULL
+  `id_prodi` int(11) DEFAULT NULL,
+  `id_jenis` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `data_pengendalian`
 --
 
-INSERT INTO `data_pengendalian` (`id`, `nama_bidang_pengaturan_standar`, `tautan_pelaksanaan_rtm`, `tautan_bukti_pelaksanaan_rtm`, `tautan_pelaksanaan_rtl`, `tautan_bukti_pelaksanaan_rtl`, `_ctimeupload`, `_ctimeupdate`, `id_level`, `id_fakultas`, `id_prodi`) VALUES
-(5, 'dw2', 'dw2', 'dw3', 'dw4', 'dw5', '2023-11-30', '2023-11-30', 2, 1, 6);
+INSERT INTO `data_pengendalian` (`id`, `nama_bidang_pengaturan_standar`, `tautan_pelaksanaan_rtm`, `tautan_bukti_pelaksanaan_rtm`, `tautan_pelaksanaan_rtl`, `tautan_bukti_pelaksanaan_rtl`, `_ctimeupload`, `_ctimeupdate`, `id_level`, `id_fakultas`, `id_prodi`, `id_jenis`) VALUES
+(5, 'dw2', 'dw2', 'dw3', 'dw4', 'dw5', '2023-11-30', '2023-11-30', 2, 1, 6, NULL);
 
 -- --------------------------------------------------------
 
@@ -156,15 +162,16 @@ CREATE TABLE `data_peningkatan` (
   `_ctimeupdate` date DEFAULT NULL,
   `id_level` int(11) DEFAULT NULL,
   `id_fakultas` int(11) DEFAULT NULL,
-  `id_prodi` int(11) DEFAULT NULL
+  `id_prodi` int(11) DEFAULT NULL,
+  `id_jenis` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `data_peningkatan`
 --
 
-INSERT INTO `data_peningkatan` (`id`, `nama_pengaturan`, `tautan_penetapan`, `tautan_peningkatan`, `tanggal_penetapan_baru`, `_ctimeupload`, `_ctimeupdate`, `id_level`, `id_fakultas`, `id_prodi`) VALUES
-(3, 'dddw', 'dddw', 'dddw', '2023-11-30', '2023-11-30', '2023-11-30', 2, 1, 6);
+INSERT INTO `data_peningkatan` (`id`, `nama_pengaturan`, `tautan_penetapan`, `tautan_peningkatan`, `tanggal_penetapan_baru`, `_ctimeupload`, `_ctimeupdate`, `id_level`, `id_fakultas`, `id_prodi`, `id_jenis`) VALUES
+(3, 'dddw', 'dddw', 'dddw', '2023-11-30', '2023-11-30', '2023-11-30', 2, 1, 6, NULL);
 
 -- --------------------------------------------------------
 
@@ -197,6 +204,26 @@ INSERT INTO `t_fakultas` (`id`, `nama_fakultas`) VALUES
 (13, 'Lembaga'),
 (14, 'Kesekretariatan'),
 (15, 'Koordinator');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t_jenis`
+--
+
+CREATE TABLE `t_jenis` (
+  `id` int(11) NOT NULL,
+  `nama_jenis` varchar(128) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `t_jenis`
+--
+
+INSERT INTO `t_jenis` (`id`, `nama_jenis`) VALUES
+(1, 'Fakultas'),
+(2, 'Prodi'),
+(3, 'Lainnya');
 
 -- --------------------------------------------------------
 
@@ -283,6 +310,7 @@ CREATE TABLE `t_user` (
   `level` int(11) DEFAULT NULL,
   `fakultas` int(11) DEFAULT NULL,
   `prodi` int(11) DEFAULT NULL,
+  `jenis` int(11) DEFAULT NULL,
   `nama_lengkap` varchar(128) DEFAULT NULL,
   `_ctimeupload` date DEFAULT NULL,
   `_ctimeupdate` date DEFAULT NULL
@@ -292,11 +320,13 @@ CREATE TABLE `t_user` (
 -- Dumping data for table `t_user`
 --
 
-INSERT INTO `t_user` (`id`, `username`, `password`, `level`, `fakultas`, `prodi`, `nama_lengkap`, `_ctimeupload`, `_ctimeupdate`) VALUES
-(3, 'admin', 'admin', 1, 9, 17, 'LPM', '2023-10-26', '2023-11-02'),
-(4, 'gkmfia', 'gkmfia', 2, 1, 6, 'GKM FIA', '2023-10-26', '2023-10-26'),
-(5, 'fasilkom', 'fasilkom', 3, 4, 12, 'FASILKOM', '2023-11-29', '2023-11-29'),
-(6, 'coba', 'coba', 1, 4, 12, 'COBA', '2023-11-29', '2023-11-29');
+INSERT INTO `t_user` (`id`, `username`, `password`, `level`, `fakultas`, `prodi`, `jenis`, `nama_lengkap`, `_ctimeupload`, `_ctimeupdate`) VALUES
+(3, 'admin', 'admin', 1, 9, 17, 1, 'LPM', '2023-10-26', '2023-12-04'),
+(4, 'gkmfia', 'gkmfia', 2, 1, 6, NULL, 'GKM FIA', '2023-10-26', '2023-10-26'),
+(5, 'fasilkom', 'fasilkom', 3, 4, 12, NULL, 'FASILKOM', '2023-11-29', '2023-11-29'),
+(6, 'coba', 'coba', 1, 4, 12, NULL, 'COBA', '2023-11-29', '2023-11-29'),
+(7, 'fikom', 'fikom', 3, 5, 8, 2, 'FIKOM', '2023-12-02', '2023-12-04'),
+(8, 'sikologi', 'sikologi', 3, 5, 7, NULL, 'Sikologi', '2023-12-02', '2023-12-02');
 
 --
 -- Indexes for dumped tables
@@ -339,6 +369,12 @@ ALTER TABLE `t_fakultas`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `t_jenis`
+--
+ALTER TABLE `t_jenis`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `t_level`
 --
 ALTER TABLE `t_level`
@@ -364,7 +400,7 @@ ALTER TABLE `t_user`
 -- AUTO_INCREMENT for table `data_evaluasi`
 --
 ALTER TABLE `data_evaluasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `data_pelaksanaan`
@@ -397,10 +433,16 @@ ALTER TABLE `t_fakultas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
+-- AUTO_INCREMENT for table `t_jenis`
+--
+ALTER TABLE `t_jenis`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `t_level`
 --
 ALTER TABLE `t_level`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `t_prodi`
@@ -412,7 +454,7 @@ ALTER TABLE `t_prodi`
 -- AUTO_INCREMENT for table `t_user`
 --
 ALTER TABLE `t_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

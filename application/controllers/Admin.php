@@ -77,6 +77,7 @@ class Admin extends CI_Controller {
     $data["level"]=$this->model_pengguna->getAllLevel();
     $data["fakultas"]=$this->model_pengguna->getAllFakultas();
     $data["prodi"]=$this->model_pengguna->getAllProdi();
+    $data["jenis"]=$this->model_pengguna->getAllJenis();
     $this->load->view('admin/kelola_pengguna/view_formAddPengguna', $data);
   }
 
@@ -84,6 +85,7 @@ class Admin extends CI_Controller {
     $data["data_level"]=$this->model_pengguna->getAllLevel();
     $data["data_fakultas"]=$this->model_pengguna->getAllFakultas();
     $data["data_prodi"]=$this->model_pengguna->getAllProdi();
+    $data["data_jenis"]=$this->model_pengguna->getAllJenis();
     $data["data"]=$this->model_pengguna->view_dataPengguna();
     $this->load->view('admin/kelola_pengguna/view_formEditPengguna', $data);
   }

@@ -69,6 +69,7 @@ class Model_penetapan extends CI_Model  {
         $id_level = $this->fungsi->user_login()->level;
         $id_fakultas = $this->fungsi->user_login()->fakultas;
         $id_prodi = $this->fungsi->user_login()->prodi;
+        $id_jenis = $this->fungsi->user_login()->jenis;
         
         $this->db->set($form);
         $this->db->set("nama_file", $nama_file);
@@ -77,6 +78,7 @@ class Model_penetapan extends CI_Model  {
         $this->db->set("id_level", $id_level);
         $this->db->set("id_fakultas", $id_fakultas);
         $this->db->set("id_prodi", $id_prodi);
+        $this->db->set("id_jenis", $id_jenis);
         return $this->db->insert("data_penetapan");
     }
 
@@ -94,6 +96,7 @@ class Model_penetapan extends CI_Model  {
         $id_level = $this->fungsi->user_login()->level;
         $id_fakultas = $this->fungsi->user_login()->fakultas;
         $id_prodi = $this->fungsi->user_login()->prodi;
+        $id_jenis = $this->fungsi->user_login()->jenis;
 
         $this->db->set($form);
         $this->db->set("nama_file", $nama_file);
@@ -101,6 +104,7 @@ class Model_penetapan extends CI_Model  {
         $this->db->set("id_level", $id_level);
         $this->db->set("id_fakultas", $id_fakultas);
         $this->db->set("id_prodi", $id_prodi);
+        $this->db->set("id_jenis", $id_jenis);
         $this->db->where("id", $id);
         return $this->db->update("data_penetapan");
     }

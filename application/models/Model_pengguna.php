@@ -78,6 +78,11 @@ class Model_pengguna extends CI_Model  {
         return $this->db->get();
     }
 
+    function getAllJenis(){
+        $this->db->from("t_jenis");
+        return $this->db->get();
+    }
+
   function count_filtered() {
       $this->_get_datatables_query();
       $query = $this->db->get();

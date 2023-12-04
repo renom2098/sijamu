@@ -44,6 +44,23 @@
 
                 <div class="col-12">
                   <div class="mb-1">
+                    <label for="horizontal-jenis-input" class="col-sm-3 col-form-label">Jenis</label>
+                    <?php
+                        $options = array('' => '===Pilih Jenis===',);
+                        foreach ($jenis->result() as $js) {
+                            $options[$js->id] = $js->nama_jenis;
+                        }
+
+                        $attr = array('class' => 'form-select', 'id' => 'horizontal-jenis-input', 'required' => 'required');
+                        echo form_dropdown('f[jenis]', $options, $jenis, $attr);
+                        unset($options);
+                        unset($attr);
+                    ?>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="mb-1">
                     <label for="horizontal-fakultas-input" class="col-sm-3 col-form-label">Fakultas</label>
                     <?php
                         $options = array('' => '===Pilih Fakultas===',);
