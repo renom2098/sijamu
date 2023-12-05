@@ -25,7 +25,13 @@ $tautan = $data->tautan ?? '';
                 <div class="col-12">
                     <div class="mb-1">
                         <label class="form-label" for="jenis-pelaksanaan">Jenis Pelaksanaan</label>
-                        <input type="text" id="jenis-pelaksanaan" class="form-control" name="f[jenis_dok_pelaksanaan]" placeholder="Jenis Pelaksanaan" value="<?= $jenis_dok_pelaksanaan; ?>">
+                        <select class="form-select" id="basicSelect" name="f[jenis_dok_pelaksanaan]">
+                            <option Value="#">===Pilih===</option>    
+                            <option Value="Pendidikan" <?php if($jenis_dok_pelaksanaan == "Pendidikan") echo 'selected="selected"' ?? ''; ?>>Pendidikan</option>
+                            <option value="Penelitian" <?php if($jenis_dok_pelaksanaan == "Penelitian") echo 'selected="selected"' ?? ''; ?>>Penelitian</option>
+                            <option value="Pengabdian" <?php if($jenis_dok_pelaksanaan == "Pengabdian") echo 'selected="selected"' ?? ''; ?>>Pengabdian</option>
+                        </select>
+                        <!-- <input type="text" id="jenis-pelaksanaan" class="form-control" name="f[jenis_dok_pelaksanaan]" placeholder="Jenis Pelaksanaan" value="<?= $jenis_dok_pelaksanaan; ?>"> -->
                     </div>
                 </div>
                 <div class="col-12">

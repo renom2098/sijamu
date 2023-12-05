@@ -16,7 +16,13 @@
                 <div class="col-12">
                     <div class="mb-1">
                         <label class="form-label" for="jenis-pelaksanaan">Jenis Pelaksanaan</label>
-                        <input type="text" id="jenis-pelaksanaan" class="form-control" name="f[jenis_dok_pelaksanaan]" placeholder="Jenis Pelaksanaan">
+                        <select class="form-select" id="basicSelect" name="f[jenis_dok_pelaksanaan]">
+                            <option Value="#">===Pilih===</option>    
+                            <option Value="Pendidikan">Pendidikan</option>
+                            <option value="Penelitian">Penelitian</option>
+                            <option value="Pengabdian">Pengabdian</option>
+                        </select>
+                        <!-- <input type="text" id="jenis-pelaksanaan" class="form-control" name="f[jenis_dok_pelaksanaan]" placeholder="Jenis Pelaksanaan"> -->
                     </div>
                 </div>
                 <div class="col-12">
