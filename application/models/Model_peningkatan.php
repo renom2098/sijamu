@@ -15,11 +15,23 @@ class Model_peningkatan extends CI_Model  {
       if ($this->fungsi->user_login()->level == 1){
             $this->db->select('*');
             $this->db->from('data_peningkatan');
-        } else {
+        } elseif ($this->fungsi->user_login()->jenis == 1) {
+            $id_fakultas = $this->fungsi->user_login()->fakultas;  
+            $this->db->select('*');
+            $this->db->from('data_peningkatan');
+            $this->db->where('id_fakultas',$id_fakultas);
+        } elseif ($this->fungsi->user_login()->jenis == 2){
             $id_prodi = $this->fungsi->user_login()->prodi;  
             $this->db->select('*');
             $this->db->from('data_peningkatan');
             $this->db->where('id_prodi',$id_prodi);
+        } elseif ($this->fungsi->user_login()->jenis == 3){
+            $id_fakultas = $this->fungsi->user_login()->fakultas;  
+            $id_prodi = $this->fungsi->user_login()->prodi;  
+            $this->db->select('*');
+            $this->db->from('data_peningkatan');
+            $this->db->where('id_prodi',$id_prodi);
+            $this->db->or_where_in('id_fakultas',$id_fakultas);
         }
       $i = 0;
       foreach ($this->column_search as $peningkatan) { // loop column 
